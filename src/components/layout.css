@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500&family=Inter&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* nav-bar */
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: flex-start;
+    margin-left: 10vw;
+    height: 50px;
+}
+
+.navLink {
+    font-weight: bold;
+    margin-top: 5px;
+    margin-right: 120px;
+}
+
+.navLink:first-of-type {
+    margin-right: 150px;
+}
+
+
+
+
+.home-presentation {
+    margin-left: 10vw;
+    width: 55vw;
+    min-width: 700px;
+    text-align: justify;
+}
+
+/* numéros */
+
+.numeros-left-section {
+    width: 22vw;
+    height: calc(100vh - 66px);
+    padding-right: 20px;
+    margin-left: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    top: 66px;
+}
+
+.numeros-presentation {
+    padding-right: 30px;
+}
+
+.numeros-left-section p {
+    /* text-align: justify; */
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.numeros-right-section {
+    margin-left: 33vw;
+    margin-right: 10vw;
+    margin-top: 16px;
+    width: 57vw;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.numeros-article-card{
+    width: 47%;
+    height: 400px;
+    overflow-y: hidden;
+    margin-bottom: 50px;
+    position:relative;
+}
+.numeros-image-card {
+    height: 250px;
+    width: 100%;
+    background-size: cover;
+    z-index: 1;
+    position: absolute !important;
+    left: 0;
+    top: 0;
+}
+
+.numeros-article-card h3 {
+    margin-top: 250px;
+    margin-bottom: 0;
+    z-index: 2;
+}
+
+.numeros-article-card:hover h3 {
+    margin-top: 0;
+}
+
+.numeros-article-card h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 400;
+    font-size: 13px;
+    font-style: italic;
+    z-index: 2;
+}
+
+.numeros-text-card p{
+    font-size: 13px;
+    z-index: 2;
+}
+

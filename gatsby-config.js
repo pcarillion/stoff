@@ -24,7 +24,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-playground`,
     `gatsby-plugin-transition-link`,
-
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-contentful`,
       options: {

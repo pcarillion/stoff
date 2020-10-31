@@ -82,26 +82,26 @@ a {
     height: 400px;
     overflow-y: hidden;
     margin-bottom: 50px;
-    position:relative;
 }
 .numeros-image-card {
     height: 250px;
     width: 100%;
     background-size: cover;
     z-index: 1;
-    position: absolute !important;
-    left: 0;
-    top: 0;
 }
 
 .numeros-article-card h3 {
-    margin-top: 250px;
     margin-bottom: 0;
     z-index: 2;
 }
 
+.numeros-article-card:hover{
+    cursor: pointer;
+
+}
+
 .numeros-article-card:hover h3 {
-    margin-top: 0;
+    color: #B18522;
 }
 
 .numeros-article-card h4 {
@@ -118,3 +118,66 @@ a {
     z-index: 2;
 }
 
+#select-numero {
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    border: none;
+    background: none;
+}
+
+#select-numero option {
+    text-align: center;
+    padding: 5px;
+    border-top: none;
+}
+
+/* au fil de l'eau */
+
+.au-fil-container {
+    margin: 100px 10vw 0 10vw;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.au-fil-article-card {
+    width: 30%;
+    margin: 2.5%;
+}
+
+@media screen and (max-width: 1050px) {
+    .au-fil-article-card {
+        width: 45%;
+        margin: 2.5%;
+    }
+}
+
+.au-fil-image-card {
+    min-height: 250px;
+}
+
+.au-fil-author-date {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.au-fil-author-date > *  {
+    max-width: 50%;
+    margin: 0;
+    padding-right: 50px;
+}
+
+.au-fil-author-date span {
+    text-transform: uppercase;
+}
+
+.au-fil-pres > p {
+    text-align: justify;
+    word-break: break-word;
+    hyphens: auto; 
+    word-wrap: break-word;
+}

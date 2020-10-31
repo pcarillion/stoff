@@ -120,6 +120,7 @@ a {
 .numeros-text-card p{
     font-size: 13px;
     z-index: 2;
+    text-align: justify;
 }
 
 #select-numero {

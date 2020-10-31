@@ -26,6 +26,15 @@ module.exports = {
     `gatsby-plugin-transition-link`,
     `gatsby-transformer-remark`,
     {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        custom: {
+          families: ["Letter Gothic, Letter Gothic Bold Slanted"],
+          urls: ["/fonts/fonts.css"],
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.SPACE_ID,

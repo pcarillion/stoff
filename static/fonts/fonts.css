@@ -1,0 +1,25 @@
+@font-face {
+    font-family: "Letter Gothic";
+    src: url('LetterGothicStd.otf');
+}
+
+@font-face {
+    font-family: "Letter Gothic Bold Slanted";
+    src: url('LetterGothicStd-BoldSlanted.otf');
+}
+@font-face {
+    font-family: "Helvetica";
+    src: url('Helvetica.ttf');
+}
+@font-face {
+    font-family: "Helvetica Bold";
+    src: url('Helvetica-Bold.ttf');
+}
+@font-face {
+    font-family: "Barlow Semi Condensed";
+    src: url('BarlowSemiCondensed-Medium.ttf');
+}
+/* @font-face {
+    font-family: "Barlow Semi Condensed";
+    src: url('BarlowSemiCondensed-Regular.ttf');
+} */

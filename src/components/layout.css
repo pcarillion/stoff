@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500&family=Inter&display=swap');
 
 * {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Helvetica', 'Inter', sans-serif;
 }
 
 a {
@@ -22,7 +22,7 @@ a {
 
 .navLink {
     font-weight: bold;
-    margin-top: 5px;
+    margin-top: 20px;
     margin-right: 120px;
 }
 
@@ -31,10 +31,11 @@ a {
 }
 
 
-
+/* home */
 
 .home-presentation {
     margin-left: 10vw;
+    margin-top: 50px;
     width: 55vw;
     min-width: 700px;
     text-align: justify;
@@ -52,7 +53,7 @@ a {
     justify-content: space-between;
     position: fixed;
     left: 0;
-    top: 66px;
+    top: 100px;
 }
 
 .numeros-presentation {
@@ -68,7 +69,7 @@ a {
 .numeros-right-section {
     margin-left: 33vw;
     margin-right: 10vw;
-    margin-top: 16px;
+    margin-top: 50px;
     width: 57vw;
     display: flex;
     flex-direction: row;
@@ -93,6 +94,9 @@ a {
 .numeros-article-card h3 {
     margin-bottom: 0;
     z-index: 2;
+    font-family: "Barlow Semi Condensed";
+    font-weight: 500;
+    font-size: 21px;
 }
 
 .numeros-article-card:hover{
@@ -135,7 +139,7 @@ a {
 /* au fil de l'eau */
 
 .au-fil-container {
-    margin: 100px 10vw 0 10vw;
+    margin: 50px 10vw 0 10vw;
     width: 80vw;
     display: flex;
     flex-direction: row;
@@ -145,7 +149,7 @@ a {
 
 .au-fil-article-card {
     width: 30%;
-    margin: 2.5%;
+    margin: 0 2.5% 2.5% 0;
 }
 
 @media screen and (max-width: 1050px) {
@@ -159,20 +163,31 @@ a {
     min-height: 250px;
 }
 
+.au-fil-article-card h3 {
+    font-family: 'Barlow Semi Condensed';
+    font-weight: 500;
+    margin-bottom: 0;
+}
 .au-fil-author-date {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
+    margin-bottom: 25px;
 }
 
 .au-fil-author-date > *  {
-    max-width: 50%;
     margin: 0;
-    padding-right: 50px;
+    margin-top: 10px;
+    padding-right: 40px;
+    font-family: 'Letter Gothic';
+    font-size: 13px;
 }
 
 .au-fil-author-date span {
     text-transform: uppercase;
+    font-family: 'Letter Gothic';
+    font-size: 13px;
+
 }
 
 .au-fil-pres > p {
@@ -180,4 +195,57 @@ a {
     word-break: break-word;
     hyphens: auto; 
     word-wrap: break-word;
+}
+
+/* articles */
+
+.article-container {
+    margin: 100px 10vw;
+    max-width: 700px;
+    width: 55vw;
+}
+
+.article-container h2 {
+    font-size: 23px;
+    font-family: 'Barlow Semi Condensed';
+    font-weight: 500;
+
+}
+
+.article-info-container {
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+
+.article-info-container p {
+    margin: 0;
+    font-family: "Letter Gothic"
+
+}
+
+.article-pres {
+    text-align: justify;
+    font-style: italic;
+}
+
+.article-content {
+    text-align: justify;
+    position: relative;
+}
+
+.article-content p {
+    margin-top: 70px;
+}
+.article-au-fil-image-container {
+    position: absolute; 
+    right: -25vw;
+    top: 0;
+    height: 15vw;
+    width: 15vw;
+}
+
+
+.article-au-fil-image {
+    width: 100%;
+    height: 100%;
 }

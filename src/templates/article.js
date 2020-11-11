@@ -17,7 +17,7 @@ const Article = ({data}) => {
                     <p>{dateDePublication}</p>
                 </div>
                 <div className='article-pres'>
-                    {documentToReactComponents(presentation.json)}
+                    {presentation && documentToReactComponents(presentation.json)}
                 </div>
                 <div className='article-content'>
                     {documentToReactComponents(article.json)} 

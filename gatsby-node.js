@@ -43,5 +43,15 @@ exports.createPages = async ({graphql, actions}) => {
             }
         })
     })
+
+    data.articles.edges.forEach(({node}) => {
+        createPage({
+            path: `numeros/materiaux/${node.url}`,
+            component: path.resolve('./src/templates/materiau.js'),
+            context: {
+                url: node.url
+            }
+        })
+    })
 }
 

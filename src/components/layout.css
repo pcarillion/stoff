@@ -160,14 +160,17 @@ p {
 
 
 
-.numeros-text-card .text-filter{
+.text-filter{
     position: absolute;
     top: 30%;
     left: 0;
     height: 70%;
     width: 100%;
     background: linear-gradient(to bottom, transparent 60%, white);
+    opacity: 1;
+    transition: all linear 0.4s;
 }
+
 .numeros-article-card:hover .text-filter {
     display: none;
 }
@@ -306,3 +309,77 @@ p {
     width: 100%;
     height: 100%;
 }
+
+
+/* materiaux */
+
+.materiau-container {
+    max-height: 250px;
+    overflow-y: hidden;
+    position: relative;
+    height: fit-content;
+    cursor: pointer;
+    max-width: 80vw;
+    width: 80vw;
+}
+
+
+.materiau-container .article-info-container {
+    margin: 20px 0;
+    margin: 0;
+    transition: 0.3s all linear;
+    max-height: 300px;
+    overflow-y: hidden;
+    
+}
+
+.materiau-container:hover .article-info-container {
+    max-height: 0;
+    margin: 0;
+}
+
+
+.materiau-container:hover .text-filter {
+    opacity: 0;
+    transition: all 0.4s linear;
+}
+
+.materiau-container:hover .text-materiaux {
+    opacity: 1;
+}
+.materiau-container h2 {
+    transition: all 0.3s linear;
+}
+.materiau-container:hover h2 {
+    color: #B18522;
+}
+.materiau-container .numeros-text-card {
+    max-width: 700px;
+    width: 55vw;
+}
+
+.right-info-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    transition: 0.3s linear all;
+    margin-top: 50px;
+
+}
+
+.right-info-container p {
+    font-family: "Letter Gothic";
+    margin: 0;
+
+}
+
+.materiau-container:hover .right-info-container {
+    opacity: 1;
+}
+
+.materiaux-container {
+    margin: 100px 10vw;
+
+}
+

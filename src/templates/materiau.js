@@ -1,11 +1,81 @@
 import React from 'react'
+import Layout from '../components/Layout'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import Img from 'gatsby-image'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
-const Materiau = () => {
+const Materiau = ({data}) => {
+    const {titre, auteur, dateDePublication, sousTitre, presentation, photoPrincipale, materiaux} = data.article
+    
+    console.log(materiaux)
+    
     return (
-        <div>
+        <Layout>
+            <div className='materiaux-container'>
+                <h2>Matériaux pour " {titre} "</h2>
+                {/* <div className='article-info-container'>
+                    <p>par {auteur}</p>
+                    <p>{dateDePublication}</p>
+                </div> */}
+                {/* <div className='article-pres'>
+                    {presentation && documentToReactComponents(presentation.json)}
+                </div> */}
+                <div>
+                    {materiaux?
+                    materiaux.map((materiau, i) => {
+                        return <AniLink >
+                        <div className='materiau-container'>
+                            <h2>{materiau.titre}</h2>
+                            <div className='article-info-container'>
+                                <p>par {materiau.auteur}</p>
+                                {materiau.traducteur && <p>traduit de {materiau.langueOriginale}</p>}
+                                {materiau.traducteur && <p>par {materiau.traducteur}</p>}
+                                <p>{materiau.date}</p>
+                            </div>
+                            <div className='numeros-text-card'>
+                                {presentation && documentToReactComponents(materiau.presentation.json)}
+                            </div>
+                            <p className='text-materiaux'>Lire l'article</p>
+                            <div className='text-filter'></div>
+                            <div className='right-info-container'>
+                                <p>par {materiau.auteur}</p>
+                                {materiau.traducteur && <p>traduit de {materiau.langueOriginale}</p>}
+                                {materiau.traducteur && <p>par {materiau.traducteur}</p>}
+                                <p>{materiau.date}</p>
+                            </div>
+                        </div>
+                    </AniLink>}):
+                    <p>Il n'y a pas de matériaux pour cet article...</p>
+                    }
+                </div>
+            </div>
             
-        </div>
+
+        </Layout>
     )
 }
+
+
+export const query = graphql`
+query($url:String) {
+    article: contentfulArticleEnAccesLibre(url:{eq:$url}){ 
+        titre
+        auteur
+        sousTitre
+        presentation{json}
+        photoPrincipale{fluid{...GatsbyContentfulFluid}}
+        dateDePublication(formatString: "MMMM YYYY", locale: "fr")
+        materiaux{
+            titre
+            auteur
+            dateDePublication
+            presentation{json}
+            traducteur
+            langueOriginale
+          }
+    }
+}
+`
+
 
 export default Materiau

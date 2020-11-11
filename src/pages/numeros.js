@@ -87,7 +87,7 @@ const Numeros = () => {
                                 <div className='numeros-text-card'>
                                     {documentToReactComponents(article.presentation.json)} 
                                     <div className='text-filter'></div>
-                                    <p className='text-materiaux'>Matériaux associés</p>
+                                    <AniLink to={`numeros/materiaux/`} className='text-materiaux'>Matériaux associés</AniLink>
                                 </div>
                     </div>
                 })}
@@ -99,7 +99,7 @@ const Numeros = () => {
                                 <div className='numeros-text-card'>
                                     {documentToReactComponents(article.presentation.json)} 
                                     <div className='text-filter'></div>
-                                    <p className='text-materiaux'>Matériaux associés</p>
+                                    <AniLink to={`materiaux/${article.url}`} className='text-materiaux'>Matériaux associés</AniLink>
                                 </div>
                     </AniLink>
                 })}

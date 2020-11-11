@@ -5,6 +5,7 @@ import Layout from '../components/Layout'
 import {graphql, useStaticQuery} from "gatsby"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import BackgroundImage from 'gatsby-background-image'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const getData = graphql`
 query {
@@ -14,16 +15,28 @@ query {
         numero
         presentation {json}
         articles{
-          titre
-          sousTitre
-          dateDePublication
-          presentation{json}
-          image {
-            fluid {
-                ...GatsbyContentfulFluid
-              }
+            titre
+            sousTitre
+            dateDePublication
+            presentation{json}
+            image {
+              fluid {
+                  ...GatsbyContentfulFluid
+                }
+            }
           }
-        }
+          articlesEnAccesLibre{
+            url
+            titre
+            sousTitre
+            dateDePublication
+            presentation{json}
+            photoPrincipale {
+              fluid {
+                  ...GatsbyContentfulFluid
+                }
+            }
+          }
       }
     }
   }
@@ -47,6 +60,7 @@ const Numeros = () => {
         }
     }
 
+
     return (
         <Layout>
             <section className='numeros-left-section'>
@@ -65,16 +79,29 @@ const Numeros = () => {
                 </div>
             </section>
             <section className='numeros-right-section'>
-                {numeros.edges[numberDisplayed].node.articles.map((article, i) => {
-                    console.log(article)
-                    return <div className='numeros-article-card' key={i}>
+                {numeros.edges[numberDisplayed].node.articles && numeros.edges[numberDisplayed].node.articles.map((article, i) => {
+                    return <div className='numeros-article-card non-clickable' key={i}>
                                 {article.image && <BackgroundImage className='numeros-image-card' fluid={article.image.fluid}/>}
                                 <h3>{article.titre}</h3>
                                 <h4>{article.sousTitre}</h4>
                                 <div className='numeros-text-card'>
-                                    {documentToReactComponents(numeros.edges[0].node.presentation.json)} 
+                                    {documentToReactComponents(article.presentation.json)} 
+                                    <div className='text-filter'></div>
+                                    <p className='text-materiaux'>Matériaux associés</p>
                                 </div>
                     </div>
+                })}
+                {numeros.edges[numberDisplayed].node.articlesEnAccesLibre && numeros.edges[numberDisplayed].node.articlesEnAccesLibre.map((article, i) => {
+                    return <AniLink className='numeros-article-card' key={i} to={article.url}>
+                                {article.photoPrincipale && <BackgroundImage className='numeros-image-card' fluid={article.photoPrincipale.fluid}/>}
+                                <h3>{article.titre}</h3>
+                                <h4>{article.sousTitre}</h4>
+                                <div className='numeros-text-card'>
+                                    {documentToReactComponents(article.presentation.json)} 
+                                    <div className='text-filter'></div>
+                                    <p className='text-materiaux'>Matériaux associés</p>
+                                </div>
+                    </AniLink>
                 })}
             </section>
         </Layout>

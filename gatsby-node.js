@@ -12,11 +12,16 @@ exports.createPages = async ({graphql, actions}) => {
                 }
             }
         }
-
+        articles: allContentfulArticleEnAccesLibre {
+            edges{
+              node{
+                url
+              }
+            }
+          }
     }
     `)
 
-    console.log(data)
 
 
     data.auFil.edges.forEach(({node}) => {
@@ -25,6 +30,16 @@ exports.createPages = async ({graphql, actions}) => {
             component: path.resolve('./src/templates/AuFilArticle.js'),
             context: {
                 url: node.adresseUrl
+            }
+        })
+    })
+
+    data.articles.edges.forEach(({node}) => {
+        createPage({
+            path: `numeros/${node.url}`,
+            component: path.resolve('./src/templates/Article.js'),
+            context: {
+                url: node.url
             }
         })
     })

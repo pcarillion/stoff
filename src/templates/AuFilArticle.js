@@ -34,7 +34,7 @@ const AufilArticle = ({data}) => {
 
 
 export const query = graphql`
-query getData($url:String) {
+query($url:String) {
     articleAuFil: contentfulAuFilDeLeau(adresseUrl:{eq:$url}){ 
         titre
         auteur

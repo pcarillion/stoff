@@ -9,6 +9,15 @@ a {
     color: black;
 }
 
+p {
+    line-height: 1.5;
+}
+
+
+.non-clickable {
+    cursor: default !important;
+}
+
 /* nav-bar */
 
 .nav {
@@ -45,7 +54,7 @@ a {
 
 .numeros-left-section {
     width: 22vw;
-    height: calc(100vh - 66px);
+    height: calc(100vh - 120px);
     padding-right: 20px;
     margin-left: 10vw;
     display: flex;
@@ -80,10 +89,28 @@ a {
 
 .numeros-article-card{
     width: 47%;
-    height: 400px;
+    max-height: 400px;
     overflow-y: hidden;
     margin-bottom: 50px;
+    transition: 0.4s all linear;
+    position: relative;
 }
+
+.numeros-article-card::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .numeros-article-card {
+    -ms-overflow-style: none; 
+    scrollbar-width: none;  
+  }
+
+.numeros-article-card:hover{
+    /* height: fit-content; */
+    overflow-y: auto;
+    max-height: 800px;
+}
+
 .numeros-image-card {
     height: 250px;
     width: 100%;
@@ -104,8 +131,22 @@ a {
 
 }
 
-.numeros-article-card:hover h3 {
+.numeros-article-card:hover h3, .text-materiaux {
     color: #B18522;
+}
+
+.text-materiaux {
+    opacity: 0;
+    transition: 0.1s linear all;
+    font-family: 'Letter Gothic'
+}
+.numeros-article-card:hover .text-materiaux {
+    opacity: 1;
+}
+
+.text-materiaux:hover {
+    color: black;
+    cursor: pointer !important;
 }
 
 .numeros-article-card h4 {
@@ -117,11 +158,26 @@ a {
     z-index: 2;
 }
 
+
+
+.numeros-text-card .text-filter{
+    position: absolute;
+    top: 30%;
+    left: 0;
+    height: 70%;
+    width: 100%;
+    background: linear-gradient(to bottom, transparent 60%, white);
+}
+.numeros-article-card:hover .text-filter {
+    display: none;
+}
 .numeros-text-card p{
     font-size: 13px;
     z-index: 2;
     text-align: justify;
 }
+
+
 
 #select-numero {
     width: 100%;

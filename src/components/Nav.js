@@ -3,7 +3,6 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const Nav = () => {
 
-    console.log(window.location.pathname)
     const numeroLink = {}
     const aufilLink = {}
     if (typeof window !== 'undefined') {

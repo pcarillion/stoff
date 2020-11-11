@@ -37,7 +37,7 @@ exports.createPages = async ({graphql, actions}) => {
     data.articles.edges.forEach(({node}) => {
         createPage({
             path: `numeros/${node.url}`,
-            component: path.resolve('./src/templates/Article.js'),
+            component: path.resolve('./src/templates/article.js'),
             context: {
                 url: node.url
             }

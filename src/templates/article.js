@@ -3,8 +3,10 @@ import Layout from '../components/Layout'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Img from 'gatsby-image'
 
+import Materiaux from '../components/materiaux'
+
 const Article = ({data}) => {
-    const {titre, auteur, dateDePublication, sousTitre, presentation, photoPrincipale, article} = data.article
+    const {titre, auteur, dateDePublication, sousTitre, presentation, photoPrincipale, article, materiaux} = data.article
     
 
     
@@ -12,6 +14,7 @@ const Article = ({data}) => {
         <Layout>
             <div className='article-container'>
                 <h2>{titre}</h2>
+                <a className='materiaux-link' href='#materiaux'>Matériaux associés</a>
                 <div className='article-info-container'>
                     <p>par {auteur}</p>
                     <p>{dateDePublication}</p>
@@ -26,8 +29,8 @@ const Article = ({data}) => {
                     </div>
                 </div>
             </div>
-            
-
+            <div id='materiaux'></div>
+            {materiaux && <Materiaux materiaux={materiaux}/>}
         </Layout>
     )
 }
@@ -43,6 +46,14 @@ query($url:String) {
         photoPrincipale{fluid{...GatsbyContentfulFluid}}
         dateDePublication(formatString: "MMMM YYYY", locale: "fr")
         article{json}
+        materiaux{
+            titre
+            auteur
+            dateDePublication
+            presentation{json}
+            traducteur
+            langueOriginale
+          }
     }
 }
 `

@@ -2,12 +2,16 @@ import React from 'react'
 
 import './layout.css'
 import Nav from './Nav'
+import ErreurTemporaire from './ErreurTemporaire'
 
 const Layout = ({children}) => {
     return (
         <div>
-            <Nav/>
-            {children}
+            <div id="all-content">
+                <Nav/>
+                {children}  
+            </div>
+            <ErreurTemporaire/>
         </div>
     )
 }

@@ -4,25 +4,15 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Img from 'gatsby-image'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
-const Materiau = ({data}) => {
-    const {titre, auteur, dateDePublication, sousTitre, presentation, photoPrincipale, materiaux} = data.article1
-    
+const Materiaux = ({materiaux}) => {
     console.log(materiaux)
     
     return (
-        <Layout>
-            <div className='materiaux-container'>
-                <h1>Matériaux pour " {titre} "</h1>
-                {/* <div className='article-info-container'>
-                    <p>par {auteur}</p>
-                    <p>{dateDePublication}</p>
-                </div> */}
-                {/* <div className='article-pres'>
-                    {presentation && documentToReactComponents(presentation.json)}
-                </div> */}
+            <div className='materiaux-container component'>
+                <h1>Matériaux</h1>
                 <div>
-                    {materiaux?
-                    materiaux.map((materiau, i) => {
+                   
+                    {materiaux.map((materiau, i) => {
                         return <AniLink >
                         <div className='materiau-container'>
                             <h2>{materiau.titre}</h2>
@@ -33,7 +23,7 @@ const Materiau = ({data}) => {
                                 <p>{materiau.date}</p>
                             </div>
                             <div className='numeros-text-card'>
-                                {presentation && documentToReactComponents(materiau.presentation.json)}
+                                {materiau.presentation && documentToReactComponents(materiau.presentation.json)}
                             </div>
                             <p className='text-materiaux'>Lire l'article</p>
                             <div className='text-filter'></div>
@@ -44,42 +34,13 @@ const Materiau = ({data}) => {
                                 <p>{materiau.date}</p>
                             </div>
                         </div>
-                    </AniLink>}):
-                    <p>Il n'y a pas de matériaux pour cet article...</p>
-                    }
+                    </AniLink>})}
                 </div>
             </div>
             
 
-        </Layout>
     )
 }
 
 
-export const query = graphql`
-query($url:String) {
-    article1: contentfulArticleEnAccesLibre(url:{eq:$url}){ 
-        titre
-        auteur
-        sousTitre
-        presentation{json}
-        photoPrincipale{fluid{...GatsbyContentfulFluid}}
-        dateDePublication(formatString: "MMMM YYYY", locale: "fr")
-        materiaux{
-            titre
-            auteur
-            dateDePublication
-            presentation{json}
-            traducteur
-            langueOriginale
-          }
-    }
-}
-`
-
-
-export default Materiau
-
-
-
-
+export default Materiaux

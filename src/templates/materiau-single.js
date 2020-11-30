@@ -5,24 +5,24 @@ import Img from 'gatsby-image'
 import SEO from '../components/SEO'
 
 const MateriauSingle = ({data}) => {
-    const {titre, auteur, date, sousTitre, prsentationDuTexte, image, article, traducteur, langueOriginale} = data.articleAuFil
+    const {titre, auteur, dateDePublication, sousTitre, presentation, image, texte, traducteur, langueOriginale} = data.materiau
     
 
     
     return (
         <Layout>
-            <SEO title={titre}/>
+            <SEO title={'Materiau | ' + titre}/>
             <div className='article-container'>
                 <h2>{titre}</h2>
                 <div className='article-info-container'>
                     <p>par {auteur}</p>
-                    <p>traduit de {langueOriginale}</p>
-                    <p>par {traducteur}</p>
-                    <p>{date}</p>
+                    {langueOriginale && <p>traduit de {langueOriginale}</p>}
+                    {traducteur && <p>par {traducteur}</p>}
+                    <p>{dateDePublication}</p>
                 </div>
-                <p className='article-pres' dangerouslySetInnerHTML={{__html : prsentationDuTexte.childMarkdownRemark.html}}></p>
+                <p className='article-pres'>{documentToReactComponents(presentation.json)} </p>
                 <div className='article-content'>
-                    {documentToReactComponents(article.json)} 
+                    {documentToReactComponents(texte.json)} 
                     <div className='article-au-fil-image-container'>
                         {image && <Img className='article-au-fil-image' fluid={image.fluid}/>}
                     </div>
@@ -37,18 +37,14 @@ const MateriauSingle = ({data}) => {
 
 export const query = graphql`
 query($url:String) {
-    articleAuFil: contentfulAuFilDeLeau(adresseUrl:{eq:$url}){ 
+    materiau: contentfulMateriau(url:{eq:$url}){ 
         titre
-        auteur
-        date(formatString: "MMMM YYYY", locale: "fr")
         sousTitre
-        prsentationDuTexte{
-            childMarkdownRemark{
-                html
-          }
-        }
+        auteur
+        dateDePublication(formatString: "MMMM YYYY", locale: "fr")
+        presentation{json}
         image {fluid{...GatsbyContentfulFluid}}
-        article {json}
+        texte {json}
         traducteur
         langueOriginale
     }

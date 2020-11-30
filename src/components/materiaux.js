@@ -5,7 +5,6 @@ import Img from 'gatsby-image'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const Materiaux = ({materiaux}) => {
-    console.log(materiaux)
     
     return (
             <div className='materiaux-container component'>

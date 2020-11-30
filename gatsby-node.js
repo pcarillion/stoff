@@ -7,18 +7,25 @@ exports.createPages = async ({graphql, actions}) => {
     query {
         auFil: allContentfulAuFilDeLeau(sort:{fields:date, order:ASC}){ 
             edges{
-            node{
-                adresseUrl
-                }
+                node{
+                    adresseUrl
+                    }
             }
         }
         articles: allContentfulArticleEnAccesLibre {
             edges{
-              node{
-                url
-              }
+                node{
+                    url
+                }
             }
-          }
+        }
+        materiau: allContentfulMateriau {
+            edges{
+                node{
+                    url
+                }
+            }
+        }
     }
     `)
 
@@ -48,6 +55,16 @@ exports.createPages = async ({graphql, actions}) => {
         createPage({
             path: `numeros/materiaux/${node.url}`,
             component: path.resolve('./src/templates/materiau.js'),
+            context: {
+                url: node.url
+            }
+        })
+    })
+
+    data.materiau.edges.forEach(({node}) => {
+        createPage({
+            path: `materiau/${node.url}`,
+            component: path.resolve('./src/templates/materiau-single.js'),
             context: {
                 url: node.url
             }

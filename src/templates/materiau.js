@@ -3,6 +3,7 @@ import Layout from '../components/Layout'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Img from 'gatsby-image'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import SEO from '../components/SEO'
 
 const Materiau = ({data}) => {
     const {titre, auteur, dateDePublication, sousTitre, presentation, photoPrincipale, materiaux} = data.article1
@@ -11,6 +12,7 @@ const Materiau = ({data}) => {
     
     return (
         <Layout>
+            <SEO title={'Matériaux | ' + titre}/>
             <div className='materiaux-container'>
                 <h1>Matériaux pour " {titre} "</h1>
                 {/* <div className='article-info-container'>

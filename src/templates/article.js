@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '../components/Layout'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Img from 'gatsby-image'
+import SEO from '../components/SEO'
 
 import Materiaux from '../components/materiaux'
 
@@ -12,6 +13,7 @@ const Article = ({data}) => {
     
     return (
         <Layout>
+            <SEO title={titre}/>
             <div className='article-container'>
                 <h2>{titre}</h2>
                 <a className='materiaux-link' href='#materiaux'>Matériaux associés</a>

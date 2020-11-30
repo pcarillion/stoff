@@ -6,6 +6,7 @@ import {graphql, useStaticQuery} from "gatsby"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import BackgroundImage from 'gatsby-background-image'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import SEO from '../components/SEO'
 
 const getData = graphql`
 query {
@@ -54,9 +55,6 @@ query {
 const Numeros = () => {
 
     const {numeros} = useStaticQuery(getData);
-
-    console.log(numeros)
-
     const [numberDisplayed, setNumberDisplayed] = useState(0)
     const [oneNumberDisplayed, setOneNumberDisplayed] = useState(false)
     const [trameUrl, setTrameUrl] = useState('')
@@ -67,6 +65,12 @@ const Numeros = () => {
                 setNumberDisplayed(i)
             }
         }
+        setOneNumberDisplayed(oneNumberDisplayed => !oneNumberDisplayed)
+    }
+
+    function close() {
+        // setNumberDisplayed(0)
+        console.log('clicked')
         setOneNumberDisplayed(oneNumberDisplayed => !oneNumberDisplayed)
     }
 
@@ -90,6 +94,7 @@ const Numeros = () => {
 
     return (
         <Layout>
+            <SEO title={'Numéros'}/>
             <AllNumeros numeros={numeros} callback={handleChange} state={oneNumberDisplayed}/>
             <div className='one-numero-container' style={oneNumeroDisplay}>
                 <section className='numeros-left-section'>
@@ -107,7 +112,7 @@ const Numeros = () => {
                         <AniLink to='/commande'>
                             <p>Commander le numéro</p>
                         </AniLink>
-                        <p>Retour à la liste des numéros</p>
+                        <p onClick={close}>Retour à la liste des numéros</p>
                     </div>
                 </section>
                 <section className='numeros-right-section'>

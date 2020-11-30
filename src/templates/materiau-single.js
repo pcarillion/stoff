@@ -4,7 +4,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Img from 'gatsby-image'
 import SEO from '../components/SEO'
 
-const AufilArticle = ({data}) => {
+const MateriauSingle = ({data}) => {
     const {titre, auteur, date, sousTitre, prsentationDuTexte, image, article, traducteur, langueOriginale} = data.articleAuFil
     
 
@@ -56,4 +56,4 @@ query($url:String) {
 `
 
 
-export default AufilArticle
+export default MateriauSingle

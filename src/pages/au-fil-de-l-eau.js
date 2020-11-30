@@ -1,12 +1,14 @@
 import React from 'react'
 
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import {graphql, useStaticQuery} from "gatsby"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import BackgroundImage from 'gatsby-background-image'
+
 
 const getData = graphql`
 query {
@@ -43,6 +45,7 @@ const Aufildeleau = () => {
 
     return (
         <Layout>
+        <SEO title={'Au fil de l\'eau'}/>
             <div className='au-fil-container'>
                 {articles.edges.map((article, i) => {
                     return <AniLink key={i} to={`/au-fil/${article.node.adresseUrl}`}  className='au-fil-article-card'>

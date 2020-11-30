@@ -6,7 +6,7 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import SEO from '../components/SEO'
 
 const Materiau = ({data}) => {
-    const {titre, auteur, dateDePublication, sousTitre, presentation, photoPrincipale, materiaux} = data.article1
+    const {titre, auteur, dateDePublication, sousTitre, presentation, photoPrincipale, materiaux, url} = data.article1
     
     console.log(materiaux)
     
@@ -15,17 +15,10 @@ const Materiau = ({data}) => {
             <SEO title={'Matériaux | ' + titre}/>
             <div className='materiaux-container'>
                 <h1>Matériaux pour " {titre} "</h1>
-                {/* <div className='article-info-container'>
-                    <p>par {auteur}</p>
-                    <p>{dateDePublication}</p>
-                </div> */}
-                {/* <div className='article-pres'>
-                    {presentation && documentToReactComponents(presentation.json)}
-                </div> */}
                 <div>
                     {materiaux?
                     materiaux.map((materiau, i) => {
-                        return <AniLink >
+                        return <AniLink to={`/materiau/${materiau.url}`}>
                         <div className='materiau-container'>
                             <h2>{materiau.titre}</h2>
                             <div className='article-info-container'>
@@ -70,6 +63,7 @@ query($url:String) {
         materiaux{
             titre
             auteur
+            url
             dateDePublication
             presentation{json}
             traducteur

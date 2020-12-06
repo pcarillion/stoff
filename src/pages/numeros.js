@@ -16,6 +16,11 @@ query {
         numero
         presentation {json}
         themes {json}
+        image {
+            fluid {
+                ...GatsbyContentfulFluid
+              }
+          }
         dateDePublication(formatString: "YYYY")
         articles{
             titre

@@ -21,7 +21,6 @@ const SEO = ({title, description}) => {
 
     const {site} = useStaticQuery(getData);
 
-    console.log(site)
 
     const {siteDesc, siteTitle, siteUrl, image, twitterUsename} = site.siteMetadata
 

@@ -14,7 +14,6 @@ const AllNumeros = ({numeros, callback, state}) => {
     //     }
     // },state)
 
-    console.log(state)
     if (state) {
         allNumerosDisplayed.display = 'none';
     } else {
@@ -24,9 +23,10 @@ const AllNumeros = ({numeros, callback, state}) => {
     return (
         <div className='all-numeros-container' style={allNumerosDisplayed}>
             {numeros.edges.map((numero, i) => {
+                console.log(numero)
                 return <div key={i} className='all-numeros-card' onClick={()=> callback(numero.node.numero)}>
                     <div className='all-numeros-card-image'>
-                        {numero.image && <Img className='article-au-fil-image' fluid={numero.image.fluid}/>}
+                        {numero.node.image && <Img className='article-au-fil-image' fluid={numero.node.image.fluid}/>}
                     </div>
                     <h4 className='all-numeros-card-title'>numéro {numero.node.numero} - {numero.node.dateDePublication}</h4>
                     <p>{documentToReactComponents(numero.node.themes.json)} </p>

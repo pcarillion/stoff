@@ -295,7 +295,16 @@ li {
 
 .all-numeros-card-image{
     /* background-color: grey; */
-    height: 200px;
+    height: 150px;
+    width: 260px;
+}
+
+@media screen and (max-width: 1050px) {
+    .all-numeros-card-image{
+        /* background-color: grey; */
+        height: 100px;
+        width: 210px;
+    }
 }
 
 .all-numeros-card:hover .all-numeros-card-title {

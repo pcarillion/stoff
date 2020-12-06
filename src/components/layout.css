@@ -19,6 +19,21 @@ p {
     cursor: default !important;
 }
 
+.uppercase {
+    text-transform: uppercase;
+    font-family: 'Letter Gothic';
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style:none;
+    list-style-image:url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+}
+
+
 /* nav-bar */
 
 .nav {
@@ -279,7 +294,7 @@ p {
 }
 
 .all-numeros-card-image{
-    background-color: grey;
+    /* background-color: grey; */
     height: 200px;
 }
 
@@ -525,9 +540,6 @@ p {
     flex-direction: row;
 }
 
-
-
-
 .countries-ul {
     margin-right: 100px;
     width: 100px;
@@ -552,6 +564,8 @@ p {
 .librairies-ul li {
     margin-bottom: 20px;
     font-size: 14px;
+    width: 150px;
+    text-align: left;
 }
 
 .distrib-message {

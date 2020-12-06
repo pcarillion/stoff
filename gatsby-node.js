@@ -19,6 +19,13 @@ exports.createPages = async ({graphql, actions}) => {
                 }
             }
         }
+        articlesblocked: allContentfulArticleSansAccesLibre {
+            edges{
+                node{
+                    url
+                }
+            }
+        }
         materiau: allContentfulMateriau {
             edges{
                 node{
@@ -43,7 +50,7 @@ exports.createPages = async ({graphql, actions}) => {
 
     data.articles.edges.forEach(({node}) => {
         createPage({
-            path: `numeros/${node.url}`,
+            path: `article/${node.url}`,
             component: path.resolve('./src/templates/article.js'),
             context: {
                 url: node.url
@@ -52,6 +59,26 @@ exports.createPages = async ({graphql, actions}) => {
     })
 
     data.articles.edges.forEach(({node}) => {
+        createPage({
+            path: `numeros/materiaux/${node.url}`,
+            component: path.resolve('./src/templates/materiau.js'),
+            context: {
+                url: node.url
+            }
+        })
+    })
+
+    data.articlesblocked.edges.forEach(({node}) => {
+        createPage({
+            path: `numeros/article/${node.url}`,
+            component: path.resolve('./src/templates/article-blocked.js'),
+            context: {
+                url: node.url
+            }
+        })
+    })
+
+    data.articlesblocked.edges.forEach(({node}) => {
         createPage({
             path: `numeros/materiaux/${node.url}`,
             component: path.resolve('./src/templates/materiau.js'),

@@ -52,7 +52,7 @@ const Aufildeleau = () => {
                         {article.node.image && <BackgroundImage className='au-fil-image-card' fluid={article.node.image.fluid}/>}
                         <h3>{article.node.titre}</h3>
                         <div className='au-fil-author-date' >
-                            <p>par <span>{article.node.auteur}</span></p>
+                            <p>par <span className='uppercase'>{article.node.auteur}</span></p>
                             <p>{article.node.date}</p>
                         </div>
                         <p className='au-fil-pres' dangerouslySetInnerHTML={{__html : article.node.prsentationDuTexte.childMarkdownRemark.html}}>

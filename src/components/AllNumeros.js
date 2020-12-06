@@ -1,4 +1,6 @@
 import React from 'react'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import Img from 'gatsby-image'
 
 const AllNumeros = ({numeros, callback, state}) => {
 
@@ -23,12 +25,12 @@ const AllNumeros = ({numeros, callback, state}) => {
         <div className='all-numeros-container' style={allNumerosDisplayed}>
             {numeros.edges.map((numero, i) => {
                 return <div key={i} className='all-numeros-card' onClick={()=> callback(numero.node.numero)}>
-                    <div className='all-numeros-card-image'></div>
+                    <div className='all-numeros-card-image'>
+                        {numero.image && <Img className='article-au-fil-image' fluid={numero.image.fluid}/>}
+                    </div>
                     <h4 className='all-numeros-card-title'>numéro {numero.node.numero} - {numero.node.dateDePublication}</h4>
-                    <p className='all-numeros-themes'>thème 1</p>
-                    <p className='all-numeros-themes'>thème 2</p>
-                    <p className='all-numeros-themes'>thème 3</p>
-                    <p className='all-numeros-themes'>thème 4</p>
+                    <p>{documentToReactComponents(numero.node.themes.json)} </p>
+                    
                 </div>
             })}
         </div>

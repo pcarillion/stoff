@@ -15,6 +15,7 @@ query {
     	node {
         numero
         presentation {json}
+        themes {json}
         dateDePublication(formatString: "YYYY")
         articles{
             titre

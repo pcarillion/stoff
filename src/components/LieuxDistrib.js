@@ -51,7 +51,7 @@ const LieuxDistrib = () => {
     const {France, Suisse, Allemagne, Belgique} = useStaticQuery(getData);
 
 
-    const [country, setCountry] = useState('')
+    const [country, setCountry] = useState('France')
     const [cities, setCities] = useState([])
     const [city, setCity] = useState('')
     const [librairies, setLibrairies] = useState([])
@@ -105,8 +105,17 @@ const LieuxDistrib = () => {
     
     useEffect(() => {
 
-        let citiesList = document.querySelectorAll('.city')
+        if (country === 'France') {
+            setCity('Paris');
+        } else if (country === 'Suisse') {
+            setCity('Genève')
+        } else if (country === 'Allemagne') {
+            setCity('Berlin')
+        } else if (country === 'Belgique') {
+            setCity('Bruxelles')
+        }
 
+        let citiesList = document.querySelectorAll('.city')
         
         for (let i = 0; i < citiesList.length; i ++) {
             citiesList[i].addEventListener('click', function() {

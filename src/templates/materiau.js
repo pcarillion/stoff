@@ -6,34 +6,38 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import SEO from '../components/SEO'
 
 const Materiau = ({data}) => {
-    const {titre, auteur, dateDePublication, sousTitre, presentation, photoPrincipale, materiaux, url} = data.article1
+
+
     
-    console.log(materiaux)
+    const {article1, article2} = data   
+
+    let article = article1 ?  article1 : article2
+    
     
     return (
         <Layout>
-            <SEO title={'Matériaux | ' + titre}/>
+            <SEO title={'Matériaux | ' + article.titre}/>
             <div className='materiaux-container'>
-                <h1>Matériaux pour " {titre} "</h1>
+                <h1>Matériaux pour " {article.titre} "</h1>
                 <div>
-                    {materiaux?
-                    materiaux.map((materiau, i) => {
+                    {article?
+                    article.materiaux.map((materiau, i) => {
                         return <AniLink to={`/materiau/${materiau.url}`}>
                         <div className='materiau-container'>
                             <h2>{materiau.titre}</h2>
                             <div className='article-info-container'>
-                                <p>par {materiau.auteur}</p>
+                            <p>par <span className='uppercase'>{materiau.auteur}</span></p>
                                 {materiau.traducteur && <p>traduit de {materiau.langueOriginale}</p>}
                                 {materiau.traducteur && <p>par {materiau.traducteur}</p>}
                                 <p>{materiau.date}</p>
                             </div>
                             <div className='numeros-text-card'>
-                                {presentation && documentToReactComponents(materiau.presentation.json)}
+                                {materiau.presentation && documentToReactComponents(materiau.presentation.json)}
                             </div>
                             <p className='text-materiaux'>Lire l'article</p>
                             <div className='text-filter'></div>
                             <div className='right-info-container'>
-                                <p>par {materiau.auteur}</p>
+                            <p>par <span className='uppercase'>{materiau.auteur}</span></p>
                                 {materiau.traducteur && <p>traduit de {materiau.langueOriginale}</p>}
                                 {materiau.traducteur && <p>par {materiau.traducteur}</p>}
                                 <p>{materiau.date}</p>
@@ -60,6 +64,18 @@ query($url:String) {
         presentation{json}
         photoPrincipale{fluid{...GatsbyContentfulFluid}}
         dateDePublication(formatString: "MMMM YYYY", locale: "fr")
+        materiaux{
+            titre
+            auteur
+            url
+            dateDePublication
+            presentation{json}
+            traducteur
+            langueOriginale
+          }
+    }
+    article2: contentfulArticleSansAccesLibre(url:{eq:$url}){ 
+        titre
         materiaux{
             titre
             auteur

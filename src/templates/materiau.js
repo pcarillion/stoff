@@ -20,7 +20,7 @@ const Materiau = ({data}) => {
             <div className='materiaux-container'>
                 <h1>Matériaux pour " {article.titre} "</h1>
                 <div>
-                    {article?
+                    {article.materiaux ?
                     article.materiaux.map((materiau, i) => {
                         return <AniLink to={`/materiau/${materiau.url}`}>
                         <div className='materiau-container'>

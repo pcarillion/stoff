@@ -124,7 +124,7 @@ const Numeros = () => {
                 <section className='numeros-right-section'>
                     {numeros.edges[numberDisplayed].node.articles && numeros.edges[numberDisplayed].node.articles.map((article, i) => {
                         if (article.titre !== 'trame') {
-                            return <div className='numeros-article-card non-clickable' key={i}>
+                            return <AniLink className='numeros-article-card' key={i} to={`/numeros/article/${article.url}`}>
                                         {article.image && <BackgroundImage className='numeros-image-card' fluid={article.image.fluid}/>}
                                         <h3>{article.titre}</h3>
                                         <h4>{article.sousTitre}</h4>
@@ -132,12 +132,12 @@ const Numeros = () => {
                                             {documentToReactComponents(article.presentation.json)} 
                                             {article.materiaux && <AniLink to={`materiaux/${article.url}`} className='text-materiaux'>Matériaux associés</AniLink>}
                                         </div>
-                            </div>
+                            </AniLink>
                         }
                     })}
                     {numeros.edges[numberDisplayed].node.articlesEnAccesLibre && numeros.edges[numberDisplayed].node.articlesEnAccesLibre.map((article, i) => {
                         if (article.titre !== 'trame') {
-                        return <AniLink className='numeros-article-card' key={i} to={article.url}>
+                        return <AniLink className='numeros-article-card' key={i} to={`/article/${article.url}`}>
                                     {article.photoPrincipale && <BackgroundImage className='numeros-image-card' fluid={article.photoPrincipale.fluid}/>}
                                     <h3>{article.titre}</h3>
                                     <h4>{article.sousTitre}</h4>

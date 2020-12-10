@@ -3,10 +3,25 @@ import Layout from '../components/Layout'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Img from 'gatsby-image'
 import SEO from '../components/SEO'
+import { INLINES } from '@contentful/rich-text-types'
+import { createPortal } from 'react-dom';
 
 const MateriauSingle = ({data}) => {
     const {titre, auteur, dateDePublication, sousTitre, presentation, image, texte, traducteur, langueOriginale} = data.materiau
+    console.log(texte)
     
+    const options = {
+        renderNode: {
+          [INLINES.HYPERLINK]: (node) => {
+            if((node.data.uri).includes("player.vimeo.com/video")){
+                return <span className="video-container"><iframe title="Unique Title 001" src={node.data.uri} frameBorder="0" allowFullScreen></iframe></span>
+            } else if((node.data.uri).includes("youtube.com/embed")) {
+              return <span className="video-container"><iframe title="Unique Title 002" src={node.data.uri} allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" frameBorder="0" allowFullScreen></iframe></span>
+            }
+          }
+        }
+      }
+
 
     
     return (
@@ -20,9 +35,9 @@ const MateriauSingle = ({data}) => {
                     {traducteur && <p>par {traducteur}</p>}
                     <p>{dateDePublication}</p>
                 </div>
-                <p className='article-pres'>{documentToReactComponents(presentation.json)} </p>
+                <p className='article-pres'>{documentToReactComponents(presentation.json, options)} </p>
                 <div className='article-content'>
-                    {documentToReactComponents(texte.json)} 
+                    {documentToReactComponents(texte.json, options)} 
                     <div className='article-au-fil-image-container'>
                         {image && <Img className='article-au-fil-image' fluid={image.fluid}/>}
                     </div>

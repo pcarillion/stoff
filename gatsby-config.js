@@ -34,6 +34,7 @@ module.exports = {
     `gatsby-plugin-playground`,
     `gatsby-plugin-transition-link`,
     `gatsby-transformer-remark`,
+    `@contentful/gatsby-transformer-contentful-richtext`,
     {
       resolve: "gatsby-plugin-web-font-loader",
       options: {

@@ -105,7 +105,7 @@ const Numeros = () => {
             <div className='one-numero-container' style={oneNumeroDisplay}>
                 <section className='numeros-left-section'>
                     <div className='numeros-presentation'>
-                        <AniLink to={trameUrl}>
+                        <AniLink to={`/article/${trameUrl}`}>
                             {documentToReactComponents(numeros.edges[numberDisplayed].node.presentation.json)} 
                         </AniLink>
                         {/* <select id='select-numero' onChange={handleChange}>

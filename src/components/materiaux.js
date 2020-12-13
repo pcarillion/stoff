@@ -8,13 +8,13 @@ const Materiaux = ({materiaux}) => {
     
     return (
             <div className='materiaux-container component'>
-                <h1>Matériaux</h1>
+                <h2>Matériaux</h2>
                 <div>
                    
                     {materiaux.map((materiau, i) => {
                         return <AniLink >
                         <div className='materiau-container'>
-                            <h2>{materiau.titre}</h2>
+                            <h2 className='materiau-component-h2'>{materiau.titre}</h2>
                             <div className='article-info-container'>
                                 <p>par {materiau.auteur}</p>
                                 {materiau.traducteur && <p>traduit de {materiau.langueOriginale}</p>}

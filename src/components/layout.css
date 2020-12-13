@@ -541,6 +541,10 @@ li {
     font-family: "Barlow Semi Condensed";
 }
 
+.materiau-component-h2 {
+    font-weight: 500;
+}
+
 /* commande temporaire */
 
 .commande-temporaire {

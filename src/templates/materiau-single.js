@@ -7,7 +7,7 @@ import { INLINES } from '@contentful/rich-text-types'
 import { createPortal } from 'react-dom';
 
 const MateriauSingle = ({data}) => {
-    const {titre, auteur, dateDePublication, sousTitre, presentation, image, texte, traducteur, langueOriginale} = data.materiau
+    const {titre, auteur, dateDePublication, sousTitre, notesCritiques, presentation, image, texte, traducteur, langueOriginale} = data.materiau
     console.log(texte)
     
     const options = {
@@ -17,11 +17,14 @@ const MateriauSingle = ({data}) => {
                 return <span className="video-container"><iframe title="Unique Title 001" src={node.data.uri} frameBorder="0" allowFullScreen></iframe></span>
             } else if((node.data.uri).includes("youtube.com/embed")) {
               return <span className="video-container"><iframe title="Unique Title 002" src={node.data.uri} allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" frameBorder="0" allowFullScreen></iframe></span>
+            } else {
+                return <strong><a href={node.data.uri}>{node.content[0].value}</a></strong>
             }
           }
         }
       }
 
+      console.log(presentation.json)
 
     
     return (
@@ -36,6 +39,7 @@ const MateriauSingle = ({data}) => {
                     <p>{dateDePublication}</p>
                 </div>
                 <p className='article-pres'>{documentToReactComponents(presentation.json, options)} </p>
+                {notesCritiques && <div className="notes-critiques" dangerouslySetInnerHTML={{__html : notesCritiques.childMarkdownRemark.html}}></div>}
                 <div className='article-content'>
                     {documentToReactComponents(texte.json, options)} 
                     <div className='article-au-fil-image-container'>
@@ -62,6 +66,11 @@ query($url:String) {
         texte {json}
         traducteur
         langueOriginale
+        notesCritiques {
+            childMarkdownRemark{
+                html
+              }
+        }
     }
 }
 `

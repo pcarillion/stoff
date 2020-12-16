@@ -47,6 +47,7 @@ li {
     left: 0;
 }
 
+
 /* nav-bar */
 
 .nav {
@@ -61,8 +62,8 @@ li {
 .navLink {
     font-weight: bold;
     margin-top: 20px;
-    margin-right: 90px;
-    width: 110px;
+    margin-right: 80px;
+    width: 120px;
     font-size: 18px
 }
 
@@ -109,10 +110,11 @@ li {
     align-items: center;
     justify-content: flex-end;
     margin-right: -5px;
+    margin-bottom: 20px;
 }
 
 #logo-stoff {
-    height: 60px;
+    height: 35px;
 }
 
 #twitter-logo {
@@ -543,6 +545,27 @@ li {
 
 .materiau-component-h2 {
     font-weight: 500;
+}
+
+.notes-critiques {
+padding: 0 20px;
+border: solid black 0.5px;
+margin: 50px 0;
+}
+
+.notes-critiques > *{
+    margin: 20px 0;
+    font-family: "Letter Gothic"
+}
+
+.notes-critiques h1 {
+    font-size: 18px;
+}
+
+.notes-critiques p{
+    text-align: justify;
+    font-size: 14px;
+    line-height: 1.6
 }
 
 /* commande temporaire */

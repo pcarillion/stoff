@@ -8,7 +8,7 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 
 
-import stoffLogo from '../img/logo-big.webp';
+import stoffLogo from '../img/logo-small.png';
 import fbLogo from '../img/facebook-log.png';
 import twitterLogo from '../img/twitter-logo.png';
 
@@ -79,8 +79,8 @@ const Home = () => {
         </div>
         <div className={"side-links"}>
           <div className='logos-div'>
-            <img src={twitterLogo} alt="stoff" id='fb-logo'/>
-            <img src={fbLogo} alt="stoff" id='fb-logo'/>
+            <a href='https://www.facebook.com/revuestoff'><img src={twitterLogo} alt="stoff" id='fb-logo'/></a>
+            <a href='https://twitter.com/revuestoff'><img src={fbLogo} alt="stoff" id='fb-logo'/></a>
             <img src={stoffLogo} alt="stoff" id='logo-stoff'/>
           </div>
           <p style={presentationTitle} onClick={setPresentation}>Présentation</p>

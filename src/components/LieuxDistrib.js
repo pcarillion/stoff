@@ -156,9 +156,9 @@ const LieuxDistrib = () => {
 
     return (
         <div>
-            <div className='distrib-message'>
+            <p className='distrib-message'>
                 Les mesures de confinement prises en Europe à partir de la fin du mois d’octobre 2020 nous ont empêché de poursuivre l’auto-diffusion du premier numéro de stoff dans certaines villes et pays que nous avions en ligne de mire. Cela dit, il est toujours possible de nous soutenir en commandant la revue sur ce site.
-            </div>
+            </p>
             <div className="lieux-container">
                 <ul className='countries-ul'>
                     {France.edges.length>0 && <li className={`country ${country == 'France' ? 'boldness' : ''}`}>

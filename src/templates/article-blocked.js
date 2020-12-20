@@ -9,6 +9,7 @@ import Materiaux from '../components/materiaux'
 
 const ArticleBlocked = ({data}) => {
     const {titre, auteur, dateDePublication, sousTitre, presentation, materiaux} = data.article
+    
     return (
         <Layout>
             <SEO title={titre}/>

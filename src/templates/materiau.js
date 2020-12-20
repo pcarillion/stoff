@@ -22,7 +22,7 @@ const Materiau = ({data}) => {
                 <div>
                     {article.materiaux ?
                     article.materiaux.map((materiau, i) => {
-                        return <AniLink to={`/materiau/${materiau.url}`}>
+                        return <a href={`/materiau/${materiau.url}`}>
                         <div className='materiau-container'>
                             <h2>{materiau.titre}</h2>
                             <div className='article-info-container'>
@@ -43,7 +43,7 @@ const Materiau = ({data}) => {
                                 <p>{materiau.date}</p>
                             </div>
                         </div>
-                    </AniLink>}):
+                    </a>}):
                     <p>Il n'y a pas de matériaux pour cet article...</p>
                     }
                 </div>

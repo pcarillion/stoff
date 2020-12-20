@@ -62,11 +62,6 @@ query($url:String) {
         photoPrincipale{fluid{...GatsbyContentfulFluid}}
         dateDePublication(formatString: "MMMM YYYY", locale: "fr")
         article{json}
-        notesDeBasDePage{
-            titre
-            text {json}
-            numro
-        }
         materiaux{
             titre
             auteur

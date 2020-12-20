@@ -30,7 +30,7 @@ query {
             materiaux{
                 titre
             }
-            presentation{json}
+            extrait{json}
             image {
               fluid {
                   ...GatsbyContentfulFluid
@@ -45,7 +45,7 @@ query {
             materiaux{
                 titre
             }
-            presentation{json}
+            extrait{json}
             photoPrincipale {
                 fluid {
                     ...GatsbyContentfulFluid
@@ -64,6 +64,11 @@ const Numeros = () => {
     const [numberDisplayed, setNumberDisplayed] = useState(0)
     const [oneNumberDisplayed, setOneNumberDisplayed] = useState(false)
     const [trameUrl, setTrameUrl] = useState('')
+
+    numeros.edges.forEach(numero => {
+        console.log(numero)
+    })
+
 
     const handleChange = (numberToDisplay) => {
         for (let i = 0; i < numeros.edges.length; i ++) {
@@ -126,11 +131,13 @@ const Numeros = () => {
                         if (article.titre !== 'trame') {
                             return <AniLink className='numeros-article-card' key={i} to={`/numeros/article/${article.url}`}>
                                         {article.image && <BackgroundImage className='numeros-image-card' fluid={article.image.fluid}/>}
-                                        <h3>{article.titre}</h3>
-                                        <h4>{article.sousTitre}</h4>
-                                        <div className='numeros-text-card'>
-                                            {documentToReactComponents(article.presentation.json)} 
-                                            {article.materiaux && <AniLink to={`materiaux/${article.url}`} className='text-materiaux'>Matériaux associés</AniLink>}
+                                        <div className="numero-all-text-content">
+                                            <h3>{article.titre}</h3>
+                                            <h4>{article.sousTitre}</h4>
+                                            <div className='numeros-text-card'>
+                                                {documentToReactComponents(article.extrait.json)} 
+                                                {article.materiaux && <AniLink to={`materiaux/${article.url}`} className='text-materiaux'>Matériaux associés</AniLink>}
+                                            </div>
                                         </div>
                             </AniLink>
                         }
@@ -139,11 +146,13 @@ const Numeros = () => {
                         if (article.titre !== 'trame') {
                         return <AniLink className='numeros-article-card' key={i} to={`/article/${article.url}`}>
                                     {article.photoPrincipale && <BackgroundImage className='numeros-image-card' fluid={article.photoPrincipale.fluid}/>}
-                                    <h3>{article.titre}</h3>
-                                    <h4>{article.sousTitre}</h4>
-                                    <div className='numeros-text-card'>
-                                        {documentToReactComponents(article.presentation.json)} 
-                                        {article.materiaux && <AniLink to={`materiaux/${article.url}`} className='text-materiaux'>Matériaux associés</AniLink>}
+                                    <div className="numero-all-text-content">
+                                        <h3>{article.titre}</h3>
+                                        <h4>{article.sousTitre}</h4>
+                                        <div className='numeros-text-card'>
+                                            {documentToReactComponents(article.extrait.json)} 
+                                            {article.materiaux && <AniLink to={`materiaux/${article.url}`} className='text-materiaux'>Matériaux associés</AniLink>}
+                                        </div>
                                     </div>
                         </AniLink>}
                     })}

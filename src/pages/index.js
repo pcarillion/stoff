@@ -79,8 +79,8 @@ const Home = () => {
         </div>
         <div className={"side-links"}>
           <div className='logos-div'>
-            <a href='https://www.facebook.com/revuestoff'><img src={twitterLogo} alt="stoff" id='fb-logo'/></a>
-            <a href='https://twitter.com/revuestoff'><img src={fbLogo} alt="stoff" id='fb-logo'/></a>
+            <a href='https://twitter.com/revuestoff'><img src={twitterLogo} alt="stoff" id='fb-logo'/></a>
+            <a href='https://www.facebook.com/revuestoff'><img src={fbLogo} alt="stoff" id='fb-logo'/></a>
             <img src={stoffLogo} alt="stoff" id='logo-stoff'/>
           </div>
           <p style={presentationTitle} onClick={setPresentation}>Présentation</p>

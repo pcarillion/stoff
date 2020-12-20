@@ -69,6 +69,7 @@ query($url:String) {
             presentation{json}
             traducteur
             langueOriginale
+            url
           }
     }
 }

@@ -39,11 +39,16 @@ const MateriauSingle = ({data}) => {
                     <p>{dateDePublication}</p>
                 </div>
                 <p className='article-pres'>{documentToReactComponents(presentation.json, options)} </p>
-                {notesCritiques && <div className="notes-critiques" dangerouslySetInnerHTML={{__html : notesCritiques.childMarkdownRemark.html}}></div>}
+                {notesCritiques && <div className='notes-critiques-container'>
+                    <div className="notes-critiques" dangerouslySetInnerHTML={{__html : notesCritiques.childMarkdownRemark.html}}></div>
+                    <div className='article-au-fil-image-container'>
+                        {image && <Img className='article-au-fil-image' fluid={image.fluid}/>}
+                    </div>
+                </div>}
                 <div className='article-content'>
                     {documentToReactComponents(texte.json, options)} 
                     <div className='article-au-fil-image-container'>
-                        {image && <Img className='article-au-fil-image' fluid={image.fluid}/>}
+                        {!notesCritiques && image && <Img className='article-au-fil-image' fluid={image.fluid}/>}
                     </div>
                 </div>
             </div>

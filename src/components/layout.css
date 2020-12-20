@@ -450,6 +450,7 @@ li {
 .article-pres {
     text-align: justify;
     font-style: italic;
+    margin-bottom: 70px;
 }
 
 .article-content {
@@ -457,8 +458,12 @@ li {
     position: relative;
 }
 
+.article-content {
+
+}
+
 .article-content p, .article-content h1, .article-content h2, .article-content h3 {
-    margin-top: 70px;
+    margin-bottom: 70px;
 }
 
 
@@ -570,6 +575,10 @@ li {
     font-weight: 500;
 }
 
+.notes-critiques-container {
+    position: relative;
+}
+
 .notes-critiques {
 padding: 0 20px;
 border: solid black 0.5px;
@@ -578,7 +587,9 @@ margin: 50px 0;
 
 .notes-critiques > *{
     margin: 20px 0;
-    font-family: "Letter Gothic"
+    font-family: "Helvetica";
+    font-weight: 300;
+    position: relative;
 }
 
 .notes-critiques h1 {

@@ -15,7 +15,7 @@ const ArticleBlocked = ({data}) => {
             <SEO title={titre}/>
             <div className='article-container'>
                 <h2>{titre}</h2>
-                <a className='materiaux-link' href='#materiaux'>Matériaux associés</a>
+                {materiaux && <a className='materiaux-link' href='#materiaux'>Matériaux associés</a>}
                 <div className='article-info-container'>
                     <p>par {auteur}</p>
                     <p>{dateDePublication}</p>
@@ -50,6 +50,7 @@ query($url:String) {
             presentation{json}
             traducteur
             langueOriginale
+            url
           }
     }
 }

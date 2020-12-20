@@ -12,7 +12,7 @@ const Materiaux = ({materiaux}) => {
                 <div>
                    
                     {materiaux.map((materiau, i) => {
-                        return <AniLink >
+                        return <a href={`/materiau/${materiau.url}`}>
                         <div className='materiau-container'>
                             <h2 className='materiau-component-h2'>{materiau.titre}</h2>
                             <div className='article-info-container'>
@@ -33,7 +33,7 @@ const Materiaux = ({materiaux}) => {
                                 <p>{materiau.date}</p>
                             </div>
                         </div>
-                    </AniLink>})}
+                    </a>})}
                 </div>
             </div>
             

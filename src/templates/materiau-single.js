@@ -18,13 +18,12 @@ const MateriauSingle = ({data}) => {
             } else if((node.data.uri).includes("youtube.com/embed")) {
               return <span className="video-container"><iframe title="Unique Title 002" src={node.data.uri} allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" frameBorder="0" allowFullScreen></iframe></span>
             } else {
-                return <strong><a href={node.data.uri}>{node.content[0].value}</a></strong>
+                return <strong><a href={node.data.uri} className="a-in-rich-text">{node.content[0].value}</a></strong>
             }
           }
         }
       }
 
-      console.log(presentation.json)
 
     
     return (

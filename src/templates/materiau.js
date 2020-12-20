@@ -4,6 +4,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Img from 'gatsby-image'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import SEO from '../components/SEO'
+import { INLINES } from '@contentful/rich-text-types'
 
 const Materiau = ({data}) => {
 
@@ -13,7 +14,19 @@ const Materiau = ({data}) => {
 
     let article = article1 ?  article1 : article2
     
-    
+    const options = {
+        renderNode: {
+          [INLINES.HYPERLINK]: (node) => {
+            if((node.data.uri).includes("player.vimeo.com/video")){
+                return <span className="video-container"><iframe title="Unique Title 001" src={node.data.uri} frameBorder="0" allowFullScreen></iframe></span>
+            } else if((node.data.uri).includes("youtube.com/embed")) {
+              return <span className="video-container"><iframe title="Unique Title 002" src={node.data.uri} allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" frameBorder="0" allowFullScreen></iframe></span>
+            } else {
+                return <strong><a href={node.data.uri}>{node.content[0].value}</a></strong>
+            }
+          }
+        }
+      }
     return (
         <Layout>
             <SEO title={'Matériaux | ' + article.titre}/>
@@ -32,7 +45,7 @@ const Materiau = ({data}) => {
                                 <p>{materiau.date}</p>
                             </div>
                             <div className='numeros-text-card'>
-                                {materiau.presentation && documentToReactComponents(materiau.presentation.json)}
+                                {materiau.presentation && documentToReactComponents(materiau.presentation.json, options)}
                             </div>
                             <p className='text-materiaux'>Lire l'article</p>
                             <div className='text-filter'></div>

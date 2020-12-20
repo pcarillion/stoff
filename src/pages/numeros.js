@@ -7,6 +7,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import BackgroundImage from 'gatsby-background-image'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import SEO from '../components/SEO'
+import { INLINES } from '@contentful/rich-text-types'
 
 const getData = graphql`
 query {
@@ -68,7 +69,19 @@ const Numeros = () => {
     numeros.edges.forEach(numero => {
         console.log(numero)
     })
-
+    const options = {
+        renderNode: {
+          [INLINES.HYPERLINK]: (node) => {
+            if((node.data.uri).includes("player.vimeo.com/video")){
+                return <span className="video-container"><iframe title="Unique Title 001" src={node.data.uri} frameBorder="0" allowFullScreen></iframe></span>
+            } else if((node.data.uri).includes("youtube.com/embed")) {
+              return <span className="video-container"><iframe title="Unique Title 002" src={node.data.uri} allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" frameBorder="0" allowFullScreen></iframe></span>
+            } else {
+                return <strong><a href={node.data.uri}>{node.content[0].value}</a></strong>
+            }
+          }
+        }
+      }
 
     const handleChange = (numberToDisplay) => {
         for (let i = 0; i < numeros.edges.length; i ++) {
@@ -111,7 +124,7 @@ const Numeros = () => {
                 <section className='numeros-left-section'>
                     <div className='numeros-presentation'>
                         <AniLink to={`/article/${trameUrl}`}>
-                            {documentToReactComponents(numeros.edges[numberDisplayed].node.presentation.json)} 
+                            {documentToReactComponents(numeros.edges[numberDisplayed].node.presentation.json, options)} 
                         </AniLink>
                         {/* <select id='select-numero' onChange={handleChange}>
                             {numeros.edges.map((numero, i) => {
@@ -135,7 +148,7 @@ const Numeros = () => {
                                             <h3>{article.titre}</h3>
                                             <h4>{article.sousTitre}</h4>
                                             <div className='numeros-text-card'>
-                                                {documentToReactComponents(article.extrait.json)} 
+                                                {documentToReactComponents(article.extrait.json, options)} 
                                                 {article.materiaux && <AniLink to={`materiaux/${article.url}`} className='text-materiaux'>Matériaux associés</AniLink>}
                                             </div>
                                         </div>
@@ -150,7 +163,7 @@ const Numeros = () => {
                                         <h3>{article.titre}</h3>
                                         <h4>{article.sousTitre}</h4>
                                         <div className='numeros-text-card'>
-                                            {documentToReactComponents(article.extrait.json)} 
+                                            {documentToReactComponents(article.extrait.json, options)} 
                                             {article.materiaux && <AniLink to={`materiaux/${article.url}`} className='text-materiaux'>Matériaux associés</AniLink>}
                                         </div>
                                     </div>

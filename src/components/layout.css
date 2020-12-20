@@ -10,6 +10,10 @@ a {
     color: black;
 }
 
+.a-in-rich-text:hover {
+    color: rgb(177, 133, 34);
+}
+
 p, li {
     line-height: 1.5;
 }
@@ -492,14 +496,13 @@ li {
 /* materiaux */
 
 .materiau-container {
-    max-height: 250px;
+    max-height: 270px;
     overflow-y: hidden;
     position: relative;
     height: fit-content;
     cursor: pointer;
-    max-width: 80vw;
     width: 80vw;
-    height: 250px;
+    height: 270px;
 }
 
 
@@ -551,6 +554,12 @@ li {
     margin-top: 50px;
 
 }
+
+@media screen and (max-width: 1000px) {
+    .materiau-container {
+        width: 85vw;
+    }
+}   
 
 .right-info-container p {
     font-family: "Letter Gothic";

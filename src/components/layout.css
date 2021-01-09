@@ -112,24 +112,32 @@ li {
 .logos-div {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: start;
     justify-content: flex-end;
     margin-right: -5px;
     margin-bottom: 20px;
 }
 
+.logos-div > a {
+    height: fit-content;
+}
+
+.logos-div img {
+    margin-left: 20px;
+}
+
 #logo-stoff {
-    height: 35px;
+    height: 40px;
 }
 
 #twitter-logo {
     height: 40px;
-    width: 40px;
+    width: auto;
 }
 
 #fb-logo {
-    height: 30px;
-    margin-left: 10px;
+    height: 40px;
+    width: auto;
 }
 
 @media screen and (max-width: 900px) {
@@ -184,7 +192,7 @@ li {
     height: 320px;
     /* overflow-y: hidden; */
     margin-bottom: 50px;
-    transition: 0.4s all linear;
+    transition: 0.6s all linear;
     position: relative;
     -ms-overflow-style: none; 
     scrollbar-width: none;  
@@ -247,15 +255,16 @@ li {
 
 .numeros-article-card .numeros-text-card {
     max-height:0;
-    transition: linear all 0.5s;
+    transition: linear all 0.6s;
     overflow-y: hidden;
 }
 
 .text-materiaux {
     opacity: 0;
-    transition: 0.1s linear all;
+    transition: 0.6s linear all;
     font-family: 'Letter Gothic'
 }
+
 .numeros-article-card:hover .text-materiaux {
     opacity: 1;
 }

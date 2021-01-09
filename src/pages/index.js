@@ -9,8 +9,8 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 
 import stoffLogo from '../img/logo-small.png';
-import fbLogo from '../img/facebook-log.png';
-import twitterLogo from '../img/twitter-logo.png';
+import fbLogo from '../img/facebook.png';
+import twitterLogo from '../img/twitter.png';
 
 
 

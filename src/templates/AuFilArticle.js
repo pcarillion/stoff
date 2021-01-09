@@ -29,7 +29,7 @@ const AufilArticle = ({data}) => {
                 <h2>{titre}</h2>
                 <div className='article-info-container'>
                     <p>par {auteur}</p>
-                    <p>traduit de {langueOriginale}</p>
+                    <p>traduit {langueOriginale}</p>
                     <p>par {traducteur}</p>
                     <p>{date}</p>
                 </div>

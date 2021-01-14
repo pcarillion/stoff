@@ -33,7 +33,7 @@ const MateriauSingle = ({data}) => {
                 <h2>{titre}</h2>
                 <div className='article-info-container'>
                     <p>par <span className='uppercase'>{auteur}</span></p>
-                    {langueOriginale && <p>traduit de {langueOriginale}</p>}
+                    {langueOriginale && <p>traduit {langueOriginale}</p>}
                     {traducteur && <p>par {traducteur}</p>}
                     <p>{dateDePublication}</p>
                 </div>

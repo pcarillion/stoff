@@ -53,6 +53,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-paypal`,
+      options: {
+        clientId: `AUjKEqdrVTWo-lT3Gu2ypy_sBM9_WnGGLHR4j44pRK_EFjRbyll88XgsllKWoq4CSK8WKgzd23mS1qRA`,
+        currency: `EUR` // Optional
+      }
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `GatsbyJS`,

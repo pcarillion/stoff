@@ -14,10 +14,13 @@ const Nav = () => {
         }
     }
     return (
-        <div className='nav'>
-            <AniLink className={'navLink'} activeStyle={{ color: "#B18522" }} to='/'>stoff</AniLink>
-            <AniLink className={'navLink'} activeStyle={{ color: "#B18522" }} style={numeroLink} to='/numeros'>numéros</AniLink>
-            <AniLink className={'navLink'} activeStyle={{ color: "#B18522" }} style={aufilLink} to='/au-fil-de-l-eau'>au fil de l'eau</AniLink>
+        <div>
+            <div className='nav'>
+                <AniLink className={'navLink'} activeStyle={{ color: "#B18522" }} to='/'>stoff</AniLink>
+                <AniLink className={'navLink'} activeStyle={{ color: "#B18522" }} style={numeroLink} to='/numeros'>numéros</AniLink>
+                <AniLink className={'navLink'} activeStyle={{ color: "#B18522" }} style={aufilLink} to='/au-fil-de-l-eau'>au fil de l'eau</AniLink>
+            </div>
+           
         </div>
     )
 }

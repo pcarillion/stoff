@@ -702,3 +702,62 @@ margin: 50px 0;
     padding: 30px;
 }
 }
+
+
+@media screen and (max-width: 900px) {
+    .nav {
+        display: none;
+    }
+    .nav-mobile {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .nav-mobile h1 {
+        padding: 20px;
+    }
+
+    .nav-mobile-pop {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 150px;
+        border: 0.5px black solid;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .nav-btn {
+        height: 50px;
+        width: 20px;
+    }
+
+    .nav-btn > div {
+        border-top: 3px solid black;
+        margin-bottom: 5px;
+    }
+
+    .navLink {
+        font-weight: bold;
+        margin-top: 20px;
+        margin-right: 0;
+        width: fit-content;
+        font-size: 18px
+    }
+}
+
+
+<div className='nav-mobile'>
+<h1>stoff</h1>
+<div className='nav-mobile-pop'>
+    <div className="nav-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <AniLink className={'navLink'} activeStyle={{ color: "#B18522" }} to='/'>stoff</AniLink>
+    <AniLink className={'navLink'} activeStyle={{ color: "#B18522" }} to='/commande'>commander</AniLink>
+    <AniLink className={'navLink'} activeStyle={{ color: "#B18522" }} style={numeroLink} to='/numeros'>numéros</AniLink>
+    <AniLink className={'navLink'} activeStyle={{ color: "#B18522" }} style={aufilLink} to='/au-fil-de-l-eau'>au fil de l'eau</AniLink>
+</div>
+</div>

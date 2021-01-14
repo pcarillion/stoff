@@ -20,7 +20,20 @@ const Nav = () => {
                 <AniLink className={'navLink'} activeStyle={{ color: "#B18522" }} style={numeroLink} to='/numeros'>numéros</AniLink>
                 <AniLink className={'navLink'} activeStyle={{ color: "#B18522" }} style={aufilLink} to='/au-fil-de-l-eau'>au fil de l'eau</AniLink>
             </div>
-           
+            <div className='nav-mobile'>
+                <h1>stoff</h1>
+                <div className='nav-mobile-pop'>
+                    <div className="nav-btn">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <AniLink className={'navLink'} activeStyle={{ color: "#B18522" }} to='/'>stoff</AniLink>
+                    <AniLink className={'navLink'} activeStyle={{ color: "#B18522" }} to='/commande'>commander</AniLink>
+                    <AniLink className={'navLink'} activeStyle={{ color: "#B18522" }} style={numeroLink} to='/numeros'>numéros</AniLink>
+                    <AniLink className={'navLink'} activeStyle={{ color: "#B18522" }} style={aufilLink} to='/au-fil-de-l-eau'>au fil de l'eau</AniLink>
+                </div>
+            </div>
         </div>
     )
 }

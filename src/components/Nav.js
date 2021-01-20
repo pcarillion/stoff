@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const Nav = () => {
@@ -12,6 +12,13 @@ const Nav = () => {
         if (window.location.pathname.includes('/numeros/')) {
             numeroLink.color = "#B18522"
         }
+    }
+    
+    const [open, setOpen] = useState(false)
+
+
+    const toggleNav = () => {
+        setOpen(open => !open)
     }
     return (
         <div>

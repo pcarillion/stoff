@@ -37,6 +37,7 @@ const MateriauSingle = ({data}) => {
                     {traducteur && <p>par {traducteur}</p>}
                     <p>{dateDePublication}</p>
                 </div>
+                    {image && <div className='article-au-fil-image-mobile'><Img  fluid={image.fluid}/></div>}
                 <p className='article-pres'>{documentToReactComponents(presentation.json, options)} </p>
                 {notesCritiques && <div className='notes-critiques-container'>
                     <div className="notes-critiques" dangerouslySetInnerHTML={{__html : notesCritiques.childMarkdownRemark.html}}></div>

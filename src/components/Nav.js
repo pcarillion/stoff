@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const Nav = () => {
@@ -13,13 +13,16 @@ const Nav = () => {
             numeroLink.color = "#B18522"
         }
     }
-    
     const [open, setOpen] = useState(false)
 
 
     const toggleNav = () => {
         setOpen(open => !open)
     }
+
+
+
+
     return (
         <div>
             <div className='nav'>
@@ -29,8 +32,8 @@ const Nav = () => {
             </div>
             <div className='nav-mobile'>
                 <h1>stoff</h1>
-                <div className='nav-mobile-pop'>
-                    <div className="nav-btn">
+                <div className={open?`nav-mobile-pop open`: `nav-mobile-pop closed`}>
+                    <div className={`nav-btn`} onClick={toggleNav}>
                         <div></div>
                         <div></div>
                         <div></div>

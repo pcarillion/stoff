@@ -143,7 +143,7 @@ const Numeros = () => {
                     {numeros.edges[numberDisplayed].node.articles && numeros.edges[numberDisplayed].node.articles.map((article, i) => {
                         if (article.titre !== 'trame') {
                             return <AniLink className='numeros-article-card' key={i} to={`/numeros/article/${article.url}`}>
-                                        {article.image && <BackgroundImage className='numeros-image-card' fluid={article.image.fluid}/>}
+                                        {article.image && <BackgroundImage className='numeros-image-card' fluid={article.image.fluid}><div><h3 className={'mobile_title'}>{article.titre}</h3></div></BackgroundImage>}
                                         <div className="numero-all-text-content">
                                             <h3>{article.titre}</h3>
                                             <h4>{article.sousTitre}</h4>

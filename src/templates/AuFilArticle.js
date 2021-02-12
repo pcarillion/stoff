@@ -29,10 +29,11 @@ const AufilArticle = ({data}) => {
                 <h2>{titre}</h2>
                 <div className='article-info-container'>
                     <p>par {auteur}</p>
-                    <p>traduit {langueOriginale}</p>
-                    <p>par {traducteur}</p>
+                    {langueOriginale && <p>traduit {langueOriginale}</p>}
+                    {traducteur && <p>par {traducteur}</p>}
                     <p>{date}</p>
                 </div>
+                {image && <div className='article-au-fil-image-mobile'><Img  fluid={image.fluid}/></div>}
                 <p className='article-pres' dangerouslySetInnerHTML={{__html : prsentationDuTexte.childMarkdownRemark.html}}></p>
                 <div className='article-content'>
                     {documentToReactComponents(article.json, options)} 

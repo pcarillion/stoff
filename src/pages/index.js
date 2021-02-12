@@ -83,8 +83,8 @@ const Home = () => {
             <a href='https://www.facebook.com/revuestoff'><img src={fbLogo} alt="stoff" id='fb-logo'/></a>
             <img src={stoffLogo} alt="stoff" id='logo-stoff'/>
           </div>
-          <p style={presentationTitle} onClick={setPresentation}>Présentation</p>
-          <p style={lieuxDistribTitle} onClick={setLieuxDistrib}>Lieux de distribution</p>
+          <p style={presentationTitle} onClick={() => {setPresentation(); window.scrollTo(0, 0)}}>Présentation</p>
+          <p style={lieuxDistribTitle} onClick={() => {setLieuxDistrib(); window.scrollTo(0, 0)}}>Lieux de distribution</p>
           <p><AniLink to='/commande'>Commande en ligne</AniLink></p>
           <p><AniLink to='/commande'>Abonnement / don</AniLink></p>
         </div>

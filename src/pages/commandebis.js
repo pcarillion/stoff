@@ -6,6 +6,7 @@ import Panier from "../components/Panier"
 import { graphql, useStaticQuery } from "gatsby"
 import ProductCard from "../components/ProductCard"
 import "../components/commande.css"
+import SEO from '../components/SEO'
 
 const buttonStyles = {
 
@@ -145,6 +146,7 @@ const Commandebis = () => {
 
     return (
         <div className="command-page">
+        <SEO title={'commande'}/>
           <div className="command-nav">
             <div>
               <div>Retour</div>

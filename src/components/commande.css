@@ -1,0 +1,199 @@
+.command-page {
+    background-color: #121212;
+    min-height: 100vh;
+    min-width: 100vw;
+    margin-top: -23px;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-bottom: 30vh;
+}
+
+.command-page * {
+    color: rgba(255,255,255,0.8);
+}
+
+.command-page .command-nav {
+    padding-top: 83px;
+    width: 90vw;
+}
+
+.command-page .command-nav > div{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 1px rgba(255,255,255,0.8) solid;
+    border-bottom: 1px rgba(255,255,255,0.8) solid;
+}
+
+.command-page .command-nav > div h1{
+    margin-left: 50px;
+}
+
+
+
+.command-card-container {
+    padding: 50px 0;
+    width: 90vw;
+}
+
+.product-card {
+    border-top: 1px rgba(255,255,255,0.8) solid;
+    border-bottom: 1px rgba(255,255,255,0.8) solid;
+    width: 35vw;
+    max-width: 300px;
+}
+
+.product-card img {
+    width: 100%;
+}
+
+.qty-input {
+  color: black; 
+}
+
+.qty-btns {
+    cursor: pointer;
+}
+
+.qty-inputs {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    margin: 10px 0;
+}
+
+.qty-inputs:hover {
+    color: #fff;
+}
+
+.product-card .btn-add {
+    cursor: pointer; 
+    margin-bottom: 1.33rem;
+}
+
+.product-card .btn-add:hover {
+    color: #fff;
+}
+.panier {
+    border-top: 1px rgba(255,255,255,0.8) solid;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100vw;
+    background-color: #121212;
+    padding: 20px 5vw;
+    box-sizing: border-box;
+}
+
+.panier-title {
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.panier-full {
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.panier-content {
+    display: flex;
+    flex-direction: row;
+    max-height: 0;
+    overflow-y: hidden;
+    transition: 0.3s ease-in-out;
+}
+
+.panier:hover .panier-content {
+    max-height: 100vh;
+}
+
+.panier-title {
+    font-size: 25px;
+}
+
+.btn-checkout {
+    background-color: #121212;
+    color: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.8);
+    padding: 10px 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.panier-details {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.total-div {
+    margin-left: 50px;
+    padding-left: 20px;
+    height: 100%;
+    border-left: 1px solid rgba(255,255,255,0.8);
+}
+
+.panier-line {
+    display: flex;
+    align-items: center; 
+}
+
+.trash-icon {
+    height: 20px;
+    padding-left: 20px;
+}
+
+.trash-icon:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 600px) {
+
+    .command-page .command-nav > div h1{
+        text-align: right;
+    }
+
+
+    .qty-input {
+        width: 30px;
+    }
+
+    .panier-content {
+        width: 100%;
+    }
+
+    .panier-full {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .panier-details {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .panier-line {
+        margin-bottom: 10px;
+    }
+
+    .total-div {
+        margin-left: 0;
+        border-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .btn-checkout{
+        width: 100%;
+    }
+}

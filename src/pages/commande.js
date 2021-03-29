@@ -133,8 +133,8 @@ const Commandebis = () => {
         const { error } = await stripe.redirectToCheckout({
           mode: "payment",
           lineItems: lineItems,
-          successUrl: `/confirmation-commande`,
-          cancelUrl: `/annulation-commande`,
+          successUrl: `https://www.stoff.fr//confirmation-commande`,
+          cancelUrl: `https://www.stoff.fr//annulation-commande`,
           shippingAddressCollection: {allowedCountries:['FR']}
         })
     

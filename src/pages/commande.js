@@ -135,7 +135,7 @@ const Commandebis = () => {
           lineItems: lineItems,
           successUrl: `https://www.stoff.fr//confirmation-commande`,
           cancelUrl: `https://www.stoff.fr//annulation-commande`,
-          shippingAddressCollection: {allowedCountries:['FR']}
+          shippingAddressCollection: {allowedCountries:['FR', 'GB', 'DE', 'BE', 'CA', 'CH', 'US', 'IT', 'ES', 'SE']}
         })
     
         if (error) {

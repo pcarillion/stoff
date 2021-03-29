@@ -136,7 +136,7 @@ const Numeros = () => {
                         <AniLink to='/commande'>
                             <p>Commander le numéro</p>
                         </AniLink>
-                        <p onClick={close}>Retour à la liste des numéros</p>
+                        <p onClick={close} class="back-numero-desktop">Retour à la liste des numéros</p>
                     </div>
                 </section>
                 <section className='numeros-right-section'>
@@ -169,7 +169,9 @@ const Numeros = () => {
                                     </div>
                         </AniLink>}
                     })}
+                <p onClick={close} class="back-numero-mobile">Retour à la liste des numéros</p>
                 </section>
+
             </div>
         </Layout>
     )

@@ -454,6 +454,10 @@ li {
     width: 315px;
 }
 
+.back-numero-mobile {
+    display: none;
+}
+
 @media screen and (max-width: 1050px) {
     .all-numeros-card-image{
         /* background-color: grey; */
@@ -491,10 +495,31 @@ li {
     .all-numeros-container {
         margin-top: 0;
     }
+
+    .one-numero-container {
+        display: flex;
+        flex-direction: column;
+    }
     
     .numeros-left-section {
+        width: 90vw;
+        position: static;
+        height: unset;
+        margin-bottom: 10px;
+    }
+
+    .numeros-presentation {
+        margin-bottom: 20px;
+    }
+    .back-numero-desktop {
         display: none;
     }
+    .back-numero-mobile {
+        font-weight:700;
+        margin: 20px 0;
+        display: block;
+    }
+
     .numeros-right-section {
         margin-left: 5vw;
         margin-top: 0;

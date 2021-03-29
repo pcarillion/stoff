@@ -86,7 +86,7 @@ const Home = () => {
           <p style={presentationTitle} onClick={() => {setPresentation(); window.scrollTo(0, 0)}}>Présentation</p>
           <p style={lieuxDistribTitle} onClick={() => {setLieuxDistrib(); window.scrollTo(0, 0)}}>Lieux de distribution</p>
           <p><AniLink to='/commande'>Commande en ligne</AniLink></p>
-          <p><AniLink to='/commande'>Abonnement / don</AniLink></p>
+          {/* <p><AniLink to='/commande'>Abonnement / don</AniLink></p> */}
         </div>
       </div>
     </Layout>

@@ -157,6 +157,15 @@
     cursor: pointer;
 }
 
+.command-page .command-nav > .frais-de-port-info {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: none;
+    border-top: none;
+    font-style: italic;
+}
+
 
 @media screen and (max-width: 600px) {
 

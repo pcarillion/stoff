@@ -9,9 +9,9 @@ import "../components/commande.css"
 import SEO from '../components/SEO'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
-const buttonStyles = {
 
-}
+const buttonStyles = {}
+
 
 const buttonDisabledStyles = {
   opacity: "0.5",
@@ -133,8 +133,8 @@ const Commandebis = () => {
         const { error } = await stripe.redirectToCheckout({
           mode: "payment",
           lineItems: lineItems,
-          successUrl: `${window.location.origin}`,
-          cancelUrl: `${window.location.origin}`,
+          successUrl: `/confirmation-commande`,
+          cancelUrl: `/annulation-commande`,
           shippingAddressCollection: {allowedCountries:['FR']}
         })
     
@@ -150,8 +150,11 @@ const Commandebis = () => {
         <SEO title={'commande'}/>
           <div className="command-nav">
             <div>
-              <div><AniLink fade to="/">Retour</AniLink></div>
+              <div><AniLink to="/">Retour</AniLink></div>
               <h1>Commander un numéro</h1>
+            </div>
+            <div className="frais-de-port-info">
+              Frais de port : 2 euros par exemplaire et tarif unique à 5 euros à partir de 3 exemplaires
             </div>
           </div>
           <div className="command-card-container">

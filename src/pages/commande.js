@@ -149,7 +149,7 @@ const Commandebis = () => {
         <SEO title={'commande'}/>
           <div className="command-nav">
             <div>
-              <div>Retour</div>
+              <div><AniLink fade to="/">Retour</AniLink></div>
               <h1>Commander un numéro</h1>
             </div>
           </div>

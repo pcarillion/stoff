@@ -50,6 +50,7 @@ const LieuxDistrib = () => {
 
     const {France, Suisse, Allemagne, Belgique} = useStaticQuery(getData);
 
+    console.log(Allemagne)
 
     const [country, setCountry] = useState('France')
     const [cities, setCities] = useState([])
@@ -145,9 +146,19 @@ const LieuxDistrib = () => {
             }
             setLibrairies(librairiesList)
         } else if (country === 'Allemagne') {
-            setCities(AllemagneCities)
+            for (let i = 0; i < Allemagne.edges.length; i ++){
+                if (city === Allemagne.edges[i].node.ville) {
+                    librairiesList.push(Allemagne.edges[i].node)
+                }
+            }
+            setLibrairies(librairiesList)
         } else if (country === 'Belgique') {
-            setCities(BelgiqueCities)
+            for (let i = 0; i < Belgique.edges.length; i ++){
+                if (city === Belgique.edges[i].node.ville) {
+                    librairiesList.push(Belgique.edges[i].node)
+                }
+            }
+            setLibrairies(librairiesList)
         }
 
     }, [city])

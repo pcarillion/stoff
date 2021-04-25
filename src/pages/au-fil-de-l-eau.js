@@ -12,7 +12,7 @@ import BackgroundImage from 'gatsby-background-image'
 
 const getData = graphql`
 query {
-    articles: allContentfulAuFilDeLeau(sort:{fields:date, order:ASC}){ 
+    articles: allContentfulAuFilDeLeau(sort:{fields:date, order:DESC}){ 
         edges{
         node{
           auteur

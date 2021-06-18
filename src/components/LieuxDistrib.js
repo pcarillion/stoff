@@ -60,6 +60,7 @@ const LieuxDistrib = () => {
     const {France, Suisse, Allemagne, Belgique, Canada} = useStaticQuery(getData);
 
 
+
     const [country, setCountry] = useState('France')
     const [cities, setCities] = useState([])
     const [city, setCity] = useState('')
@@ -203,6 +204,9 @@ const LieuxDistrib = () => {
                     </li>}
                     {Allemagne.edges.length>0 && <li className={`country ${country == 'Allemagne' ? 'boldness' : ''}`}>
                         Allemagne
+                    </li>}
+                    {Canada.edges.length>0 && <li className={`country ${country == 'Canada' ? 'boldness' : ''}`}>
+                        Canada
                     </li>}
                 </ul>
                 <ul className='cities-ul'>

@@ -52,6 +52,7 @@
     "use-shopping-cart": "^2.4.1"
   },
   "devDependencies": {
+    "gatsby-plugin-remove-trailing-slashes": "^3.7.1",
     "prettier": "2.1.2"
   },
   "repository": {

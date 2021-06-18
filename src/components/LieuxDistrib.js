@@ -43,14 +43,22 @@ query {
         }
       }
     }
+    Canada:allContentfulLibrairie(filter:{pays:{eq:"Canada"}}){
+        edges{
+          node{
+            ville
+            nom
+            rue
+          }
+        }
+      }
   }
 `
 
 const LieuxDistrib = () => {
 
-    const {France, Suisse, Allemagne, Belgique} = useStaticQuery(getData);
+    const {France, Suisse, Allemagne, Belgique, Canada} = useStaticQuery(getData);
 
-    console.log(Allemagne)
 
     const [country, setCountry] = useState('France')
     const [cities, setCities] = useState([])
@@ -73,6 +81,7 @@ const LieuxDistrib = () => {
     let SuisseCities = getCitiesList(Suisse)
     let AllemagneCities = getCitiesList(Allemagne)
     let BelgiqueCities = getCitiesList(Belgique)
+    let CanadaCities = getCitiesList(Canada)
     let librairiesList = []
 
 
@@ -101,6 +110,8 @@ const LieuxDistrib = () => {
             setCities(AllemagneCities)
         } else if (country === 'Belgique') {
             setCities(BelgiqueCities)
+        }else if (country === 'Canada') {
+            setCities(CanadaCities)
         }
     }, [country])
     
@@ -114,6 +125,8 @@ const LieuxDistrib = () => {
             setCity('Berlin')
         } else if (country === 'Belgique') {
             setCity('Bruxelles')
+        } else if (country === 'Canada') {
+            setCity('Montréal')
         }
 
         let citiesList = document.querySelectorAll('.city')
@@ -156,6 +169,13 @@ const LieuxDistrib = () => {
             for (let i = 0; i < Belgique.edges.length; i ++){
                 if (city === Belgique.edges[i].node.ville) {
                     librairiesList.push(Belgique.edges[i].node)
+                }
+            }
+            setLibrairies(librairiesList)
+        } else if (country === 'Canada') {
+            for (let i = 0; i < Canada.edges.length; i ++){
+                if (city === Canada.edges[i].node.ville) {
+                    librairiesList.push(Canada.edges[i].node)
                 }
             }
             setLibrairies(librairiesList)

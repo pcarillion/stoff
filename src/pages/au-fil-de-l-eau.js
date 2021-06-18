@@ -55,8 +55,8 @@ const Aufildeleau = () => {
                             <p>par <span className='uppercase'>{article.node.auteur}</span></p>
                             <p>{article.node.date}</p>
                         </div>
-                        <p className='au-fil-pres' dangerouslySetInnerHTML={{__html : `<div>${article.node.prsentationDuTexte.childMarkdownRemark.html}</div>`}}>
-                        </p>
+                        <div className='au-fil-pres' dangerouslySetInnerHTML={{__html : article.node.prsentationDuTexte.childMarkdownRemark.html}}>
+                        </div>
                     </AniLink>
                 })}
             </div>

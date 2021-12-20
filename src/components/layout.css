@@ -668,6 +668,12 @@ li {
     margin-bottom: 70px;
 }
 
+.article-info-container h3 {
+    font-family: "Letter Gothic";
+    font-size: 0.9em;
+
+}
+
 .article-info-container p {
     margin: 0;
     font-family: "Letter Gothic";

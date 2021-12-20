@@ -17,6 +17,7 @@ const ArticleBlocked = ({data}) => {
                 <h2>{titre}</h2>
                 {materiaux && <a className='materiaux-link' href='#materiaux'>Matériaux associés</a>}
                 <div className='article-info-container'>
+                    <h3>{sousTitre}</h3>
                     <p>par {auteur}</p>
                     <p>{dateDePublication}</p>
                 </div>

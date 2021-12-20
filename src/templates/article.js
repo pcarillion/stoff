@@ -24,7 +24,6 @@ const Article = ({data}) => {
       }
 
 
-    console.log(article)
     return (
         <Layout>
             <SEO title={titre}/>
@@ -32,6 +31,7 @@ const Article = ({data}) => {
                 <h2>{titre}</h2>
                 {materiaux && <a className='materiaux-link' href='#materiaux'>Matériaux associés</a>}
                 <div className='article-info-container'>
+                    {sousTitre && <h3>{sousTitre}</h3>}
                     <p>par {auteur}</p>
                     <p>{dateDePublication}</p>
                 </div>
@@ -65,6 +65,7 @@ query($url:String) {
         materiaux{
             titre
             auteur
+            sousTitre
             dateDePublication
             presentation{json}
             traducteur

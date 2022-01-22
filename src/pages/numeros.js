@@ -4,10 +4,10 @@ import Layout from '../components/Layout'
 import AllNumeros from '../components/AllNumeros'
 import {graphql, useStaticQuery} from "gatsby"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import BackgroundImage from 'gatsby-background-image'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import SEO from '../components/SEO'
 import { INLINES } from '@contentful/rich-text-types'
+import SingleCard from '../components/singleCard'
 
 const getData = graphql`
 query {
@@ -51,7 +51,7 @@ query {
                 fluid {
                     ...GatsbyContentfulFluid
                 }
-        }
+            }
           }
       }
     }
@@ -94,7 +94,6 @@ const Numeros = () => {
 
     function close() {
         // setNumberDisplayed(0)
-        console.log('clicked')
         setOneNumberDisplayed(oneNumberDisplayed => !oneNumberDisplayed)
     }
 
@@ -142,32 +141,13 @@ const Numeros = () => {
                 <section className='numeros-right-section'>
                     {numeros.edges[numberDisplayed].node.articles && numeros.edges[numberDisplayed].node.articles.map((article, i) => {
                         if (article.titre !== 'trame') {
-                            return <AniLink className='numeros-article-card' key={i} to={`/numeros/article/${article.url}`}>
-                                        {article.image && <BackgroundImage className='numeros-image-card' fluid={article.image.fluid}><div><h3 className={'mobile_title'}>{article.titre}</h3></div></BackgroundImage>}
-                                        <div className="numero-all-text-content">
-                                            <h3>{article.titre}</h3>
-                                            <h4>{article.sousTitre}</h4>
-                                            <div className='numeros-text-card'>
-                                                {documentToReactComponents(article.extrait.json, options)} 
-                                                {article.materiaux && <AniLink to={`materiaux/${article.url}`} className='text-materiaux'>Matériaux associés</AniLink>}
-                                            </div>
-                                        </div>
-                            </AniLink>
+                            return <SingleCard article={article} i={i} numero={true}/>
                         }
                     })}
                     {numeros.edges[numberDisplayed].node.articlesEnAccesLibre && numeros.edges[numberDisplayed].node.articlesEnAccesLibre.map((article, i) => {
                         if (article.titre !== 'trame') {
-                        return <AniLink className='numeros-article-card' key={i} to={`/article/${article.url}`}>
-                                    {article.photoPrincipale && <BackgroundImage className='numeros-image-card' fluid={article.photoPrincipale.fluid}/>}
-                                    <div className="numero-all-text-content">
-                                        <h3>{article.titre}</h3>
-                                        <h4>{article.sousTitre}</h4>
-                                        <div className='numeros-text-card'>
-                                            {documentToReactComponents(article.extrait.json, options)} 
-                                            {article.materiaux && <AniLink to={`materiaux/${article.url}`} className='text-materiaux'>Matériaux associés</AniLink>}
-                                        </div>
-                                    </div>
-                        </AniLink>}
+                            return <SingleCard article={article} i={i} numero={true}/>
+                        }
                     })}
                 <p onClick={close} class="back-numero-mobile">Retour à la liste des numéros</p>
                 </section>

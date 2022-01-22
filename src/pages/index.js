@@ -12,6 +12,9 @@ import stoffLogo from '../img/logo-small.png';
 import fbLogo from '../img/facebook.png';
 import twitterLogo from '../img/twitter.png';
 
+import useActualites from '../hooks/use-actualites'
+
+import Actualites from '../components/Actualites'
 
 
 const getData = graphql`
@@ -22,14 +25,35 @@ query{
       json
     }
   }
-
+  articles: allContentfulAuFilDeLeau(sort:{fields:date, order:DESC}){ 
+    edges{
+    node{
+      auteur
+      date(formatString: "MMMM YYYY", locale: "fr")
+      prsentationDuTexte {
+        childMarkdownRemark{
+            html
+          }
+      }
+      titre
+      sousTitre
+      adresseUrl
+      traducteur
+      image{
+        fluid{
+            ...GatsbyContentfulFluid
+        }
+      }
+    }
+  }
+}
 }
 `
 
 const Home = () => {
 
-  const {presentation} = useStaticQuery(getData);
-  const [displayed, setDisplayed] = useState('presentation')
+  const {presentation, articles} = useStaticQuery(getData);
+  const [displayed, setDisplayed] = useState('actualites')
 
   let presentationStyle = {
     transition: 'all linear 0.3s'
@@ -43,6 +67,12 @@ const Home = () => {
   let  lieuxDistribStyle = {
     transition: 'all linear 0.3s'
   }
+  let actualitesTitle = {    
+    transition: 'all linear 0.3s'
+  }
+  let  actualitesStyle = {
+    transition: 'all linear 0.3s'
+  }
 
   if (displayed === 'presentation') {
     presentationStyle.opacity = 1;
@@ -51,7 +81,9 @@ const Home = () => {
     lieuxDistribStyle.opacity = 0;
     lieuxDistribStyle.display = "none";
     presentationStyle.display = "block";
-
+    actualitesStyle.display = "none";
+    actualitesStyle.opacity = 0;
+    actualitesTitle.color = 'black';
   } else if (displayed === 'lieux de distribution') {
     presentationStyle.opacity = 0;
     presentationTitle.color = 'black'
@@ -59,8 +91,19 @@ const Home = () => {
     lieuxDistribStyle.opacity = 1;
     lieuxDistribStyle.display = "block";
     presentationStyle.display = "none";
-
-
+    actualitesStyle.display = "none";
+    actualitesStyle.opacity = 0;
+    actualitesTitle.color = 'black';
+  } else if (displayed === 'actualites') {
+    presentationStyle.opacity = 0;
+    presentationTitle.color = 'black'
+    presentationStyle.display = "none";
+    lieuxDistribTitle.color = 'black';
+    lieuxDistribStyle.opacity = 0;
+    lieuxDistribStyle.display = "none";
+    actualitesStyle.display = "block";
+    actualitesStyle.opacity = 1;
+    actualitesTitle.color = '#B8860B';
   }
 
   function setPresentation(){
@@ -70,12 +113,23 @@ const Home = () => {
     setDisplayed('lieux de distribution')
   }
 
+  function setActualites(){
+    setDisplayed('actualites')
+
+  }
+
+  // let actualites = articles.edges.map(article => article.node)
+
+    let articlesList = useActualites();
+    console.log(articlesList)
+
   return (
     <Layout>
       <div className={'home-container'}>
         <div className={'home-presentation'}>
           <div style={presentationStyle}>{documentToReactComponents(presentation.presentation.json)}</div> 
           <div style={lieuxDistribStyle}><LieuxDistrib/></div>
+          <div style={actualitesStyle}><Actualites articles={articlesList}/></div>
         </div>
         <div className={"side-links"}>
           <div className='logos-div'>
@@ -83,6 +137,7 @@ const Home = () => {
             <a href='https://www.facebook.com/revuestoff'><img src={fbLogo} alt="stoff" id='fb-logo'/></a>
             <img src={stoffLogo} alt="stoff" id='logo-stoff'/>
           </div>
+          <p style={actualitesTitle} onClick={() => {setActualites(); window.scrollTo(0, 0)}}>Actualités</p>
           <p style={presentationTitle} onClick={() => {setPresentation(); window.scrollTo(0, 0)}}>Présentation</p>
           <p style={lieuxDistribTitle} onClick={() => {setLieuxDistrib(); window.scrollTo(0, 0)}}>Lieux de distribution</p>
           <p><AniLink to='/commande'>Commande en ligne</AniLink></p>

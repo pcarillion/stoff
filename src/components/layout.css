@@ -237,6 +237,30 @@ li {
     width: auto;
 }
 
+.actualites-section {
+    margin-top: 130px;
+    width: 57vw;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+.actualites-section .numeros-article-card h5 {
+    margin-top: -20px;
+    font-family: "Barlow Semi Condensed";
+    font-weight: 500;
+}
+
+.actualites-section .numeros-article-card:nth-child(even) {
+    margin-top: 160px;
+}
+
+.actualites-section .numeros-article-card:nth-child(odd) {
+    margin-top: -80px;
+}
+
 @media screen and (max-width: 900px) {
     .home-container .side-links{
         text-align: left;
@@ -259,6 +283,23 @@ li {
         width: 90vw;
         margin: 0 5vw;
         min-width: unset;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .actualites-section .numeros-article-card:nth-child(even) {
+    margin-top: 80px;
+    }
+
+    .actualites-section .numeros-article-card:nth-child(odd) {
+        margin-top: 80px;
+    }
+
+    .actualites-section {
+        margin-top: 0;
+        width: 90vw;
+        justify-content: space-evenly;
     }
 }
 /* numéros */
@@ -536,13 +577,14 @@ li {
     .numeros-image-card > div {
         height: 100%;
         width: 100%;
-        background: linear-gradient(to top, #8080805c  1%, transparent);
+        background: linear-gradient(to top, #8080808c  1%, transparent);
         position: relative;
     }
     .mobile_title {
         display: block;
         position: absolute;
         bottom: 20px;
+        padding-right: 20px;
         left: 10px;
         color: white;
     }

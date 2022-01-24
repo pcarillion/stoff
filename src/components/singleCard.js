@@ -37,7 +37,7 @@ const SingleCard = ({article, i, numero}) => {
         if (typename === "ContentfulAuFilDeLeau") {
             return 'au-fil';
         } else if (typename === "ContentfulArticleEnAccesLibre") {
-            return 'numeros/article';
+            return 'article';
         } else if (typename === "ContentfulMateriau") {
             return 'materiau';
         }

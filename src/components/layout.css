@@ -245,6 +245,7 @@ li {
     align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
+    max-width: 1100px;
 
 }
 .actualites-section .numeros-article-card h5 {
@@ -254,11 +255,12 @@ li {
 }
 
 .actualites-section .numeros-article-card:nth-child(even) {
-    margin-top: 160px;
+    margin-top: 200px;
+    margin-right: -50px;
 }
 
 .actualites-section .numeros-article-card:nth-child(odd) {
-    margin-top: -80px;
+    margin-top: -110px;
 }
 
 @media screen and (max-width: 900px) {
@@ -284,24 +286,37 @@ li {
         margin: 0 5vw;
         min-width: unset;
     }
+
+    
+    .actualites-section {
+        margin-top: 130px;
+        width: 90vw;
+        justify-content: space-evenly;
+    }
+
+    .actualites-section .numeros-article-card:nth-child(even) {
+        margin-right: -0;
+    }
 }
 
 
 @media screen and (max-width: 700px) {
+
+    .actualites-section {
+        margin-top: 0;
+    }
+    
     .actualites-section .numeros-article-card:nth-child(even) {
     margin-top: 80px;
     }
-
+    
     .actualites-section .numeros-article-card:nth-child(odd) {
         margin-top: 80px;
     }
 
-    .actualites-section {
-        margin-top: 0;
-        width: 90vw;
-        justify-content: space-evenly;
-    }
+    
 }
+
 /* numéros */
 
 .numeros-left-section {
@@ -349,6 +364,7 @@ li {
     position: relative;
     -ms-overflow-style: none; 
     scrollbar-width: none;  
+    max-width: 390px;
 }
 
 .numeros-article-card::-webkit-scrollbar {

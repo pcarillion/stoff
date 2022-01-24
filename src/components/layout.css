@@ -956,6 +956,10 @@ li {
     line-height: 1.6
 }
 
+.notes-critiques a{
+    font-weight: bold;
+}
+
 @media screen and (max-width: 900px) {
     .materiaux-container {
         margin: 50px 5vw;

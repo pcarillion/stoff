@@ -6,8 +6,7 @@ import SEO from '../components/SEO'
 import { INLINES } from '@contentful/rich-text-types'
 
 const AufilArticle = ({data}) => {
-    const {titre, auteur, date, sousTitre, prsentationDuTexte, image, article, traducteur, langueOriginale, notesCritiques} = data.articleAuFil
-    console.log(notesCritiques)
+    const {titre, auteur, date, sousTitre, prsentationDuTexte, image, article, traducteur, langueOriginale} = data.articleAuFil
     const options = {
         renderNode: {
           [INLINES.HYPERLINK]: (node) => {
@@ -77,11 +76,6 @@ query($url:String) {
         article {json}
         traducteur
         langueOriginale
-        notesCritiques{
-            childMarkdownRemark{
-                html
-              }
-        }
     }
 }
 `

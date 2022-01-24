@@ -8,7 +8,7 @@ import { createPortal } from 'react-dom';
 
 const MateriauSingle = ({data}) => {
     const {titre, auteur, dateDePublication, sousTitre, notesCritiques, presentation, image, texte, traducteur, langueOriginale} = data.materiau
-    console.log(texte)
+    // console.log(texte)
     
     const options = {
         renderNode: {

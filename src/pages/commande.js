@@ -111,8 +111,8 @@ const Commandebis = () => {
         event.preventDefault()
         setLoading(true)
 
-        console.log("items",items)
-        console.log("frais de port",fraisDePort)
+        // console.log("items",items)
+        // console.log("frais de port",fraisDePort)
 
         let lineItems = [];
 
@@ -126,7 +126,7 @@ const Commandebis = () => {
         lineItems.push({price: fraisDePortId, quantity: parseInt(fraisDePort[2])})
 
 
-        console.log(lineItems)
+        // console.log(lineItems)
         // return;
 
         const stripe = await getStripe()

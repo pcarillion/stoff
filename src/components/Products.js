@@ -7,7 +7,7 @@ import getStripe from "../../utils/stripejs"
 
 const Products = ({add_item}) => {
 
-    console.log("hey")
+    // console.log("hey")
 
 
      

@@ -23,7 +23,7 @@ const AllNumeros = ({numeros, callback, state}) => {
     return (
         <div className='all-numeros-container' style={allNumerosDisplayed}>
             {numeros.edges.map((numero, i) => {
-                console.log(numero)
+                {/* console.log(numero) */}
                 return <div key={i} className='all-numeros-card' onClick={()=> callback(numero.node.numero)}>
                     <div className='all-numeros-card-image'>
                         {numero.node.image && <Img className='article-au-fil-image' fluid={numero.node.image.fluid}/>}

@@ -41,7 +41,7 @@ const Aufildeleau = () => {
     const {articles} = useStaticQuery(getData);
 
 
-    console.log(articles)
+    // console.log(articles)
 
     return (
         <Layout>

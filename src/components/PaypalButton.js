@@ -3,7 +3,7 @@ import Paypal from "gatsby-plugin-paypal"
 
 const PaylpalButton = (amount) => (
 
-    console.log(amount)
+    // console.log(amount)
     <Paypal 
       style={{
         shape: 'rect',

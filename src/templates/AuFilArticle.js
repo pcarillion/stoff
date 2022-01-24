@@ -21,7 +21,7 @@ const AufilArticle = ({data}) => {
         }
       }
 
-      console.log(data)
+    //   console.log(data)
     
     return (
         <Layout>

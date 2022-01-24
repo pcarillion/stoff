@@ -10,13 +10,10 @@ const Nav = () => {
     useEffect(() => {
         if (typeof window !== 'undefined') {
             if (window.location.pathname.includes('/au-fil/')) {
-                // aufilLink.color = "#B18522"
-                console.log(window.location.pathname)
                 setColoraufilLink({color: '#B18522'})
             }
             if (window.location.pathname.includes('article/')) {
                 setColorNumeroLink({color: '#B18522'})
-                // numeroLink.color = "#B18522"
             }
         }
     }, [])

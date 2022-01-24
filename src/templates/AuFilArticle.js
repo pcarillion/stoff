@@ -35,7 +35,7 @@ const AufilArticle = ({data}) => {
                     <p>{date}</p>
                 </div>
                 {image && <div className='article-au-fil-image-mobile'><Img  fluid={image.fluid}/></div>}
-                <p className='article-pres' dangerouslySetInnerHTML={{__html : prsentationDuTexte.childMarkdownRemark.html}}></p>
+                <div className='article-pres' dangerouslySetInnerHTML={{__html : prsentationDuTexte.childMarkdownRemark.html}}></div>
 
 
                 {/* {notesCritiques && <div className='notes-critiques-container'>

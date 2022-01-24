@@ -38,16 +38,16 @@ const AufilArticle = ({data}) => {
                 <p className='article-pres' dangerouslySetInnerHTML={{__html : prsentationDuTexte.childMarkdownRemark.html}}></p>
 
 
-                {notesCritiques && <div className='notes-critiques-container'>
+                {/* {notesCritiques && <div className='notes-critiques-container'>
                     <div className="notes-critiques" dangerouslySetInnerHTML={{__html : notesCritiques.childMarkdownRemark.html}}></div>
                     <div className='article-au-fil-image-container'>
                         {image && <Img className='article-au-fil-image' fluid={image.fluid}/>}
                     </div>
-                </div>}
+                </div>} */}
                 <div className='article-content'>
                     {documentToReactComponents(article.json, options)} 
                     <div className='article-au-fil-image-container'>
-                        {!notesCritiques && image && <Img className='article-au-fil-image' fluid={image.fluid}/>}
+                        {image && <Img className='article-au-fil-image' fluid={image.fluid}/>}
                     </div>
                 </div>
 

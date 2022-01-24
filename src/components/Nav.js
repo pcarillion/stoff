@@ -3,16 +3,24 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const Nav = () => {
 
-    const numeroLink = {}
-    const aufilLink = {}
-    if (typeof window !== 'undefined') {
-        if (window.location.pathname.includes('/au-fil/')) {
-            aufilLink.color = "#B18522"
+
+    const [numeroLink, setColorNumeroLink] = useState({})
+    const [aufilLink, setColoraufilLink] = useState({})
+    
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            if (window.location.pathname.includes('/au-fil/')) {
+                // aufilLink.color = "#B18522"
+                setColoraufilLink({color: '#B18522'})
+            }
+            if (window.location.pathname.includes('/numeros/')) {
+                setColorNumeroLink({color: '#B18522'})
+                // numeroLink.color = "#B18522"
+            }
         }
-        if (window.location.pathname.includes('/numeros/')) {
-            numeroLink.color = "#B18522"
-        }
-    }
+    }, [])
+
+
     const [open, setOpen] = useState(false)
 
 

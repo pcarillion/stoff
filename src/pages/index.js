@@ -13,7 +13,7 @@ import fbLogo from '../img/facebook.png';
 import twitterLogo from '../img/twitter.png';
 
 import useActualites from '../hooks/use-actualites'
-
+import SEO from '../components/SEO'
 import Actualites from '../components/Actualites'
 
 
@@ -121,10 +121,10 @@ const Home = () => {
   // let actualites = articles.edges.map(article => article.node)
 
     let articlesList = useActualites();
-    console.log(articlesList)
 
   return (
     <Layout>
+      <SEO title={'Accueil'}/>
       <div className={'home-container'}>
         <div className={'home-presentation'}>
           <div style={presentationStyle}>{documentToReactComponents(presentation.presentation.json)}</div> 

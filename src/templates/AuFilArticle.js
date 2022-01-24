@@ -6,8 +6,8 @@ import SEO from '../components/SEO'
 import { INLINES } from '@contentful/rich-text-types'
 
 const AufilArticle = ({data}) => {
-    const {titre, auteur, date, sousTitre, prsentationDuTexte, image, article, traducteur, langueOriginale} = data.articleAuFil
-    
+    const {titre, auteur, date, sousTitre, prsentationDuTexte, image, article, traducteur, langueOriginale, notesCritiques} = data.articleAuFil
+    console.log(notesCritiques)
     const options = {
         renderNode: {
           [INLINES.HYPERLINK]: (node) => {
@@ -35,12 +35,22 @@ const AufilArticle = ({data}) => {
                 </div>
                 {image && <div className='article-au-fil-image-mobile'><Img  fluid={image.fluid}/></div>}
                 <p className='article-pres' dangerouslySetInnerHTML={{__html : prsentationDuTexte.childMarkdownRemark.html}}></p>
-                <div className='article-content'>
-                    {documentToReactComponents(article.json, options)} 
+
+
+                {notesCritiques && <div className='notes-critiques-container'>
+                    <div className="notes-critiques" dangerouslySetInnerHTML={{__html : notesCritiques.childMarkdownRemark.html}}></div>
                     <div className='article-au-fil-image-container'>
                         {image && <Img className='article-au-fil-image' fluid={image.fluid}/>}
                     </div>
+                </div>}
+                <div className='article-content'>
+                    {documentToReactComponents(article.json, options)} 
+                    <div className='article-au-fil-image-container'>
+                        {!notesCritiques && image && <Img className='article-au-fil-image' fluid={image.fluid}/>}
+                    </div>
                 </div>
+
+
             </div>
             
 
@@ -65,6 +75,11 @@ query($url:String) {
         article {json}
         traducteur
         langueOriginale
+        notesCritiques{
+            childMarkdownRemark{
+                html
+              }
+        }
     }
 }
 `

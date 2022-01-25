@@ -6,7 +6,7 @@ import SEO from '../components/SEO'
 import { INLINES } from '@contentful/rich-text-types'
 
 const AufilArticle = ({data}) => {
-    const {titre, auteur, date, sousTitre, prsentationDuTexte, image, article, traducteur, langueOriginale} = data.articleAuFil
+    const {titre, auteur, date, sousTitre, prsentationDuTexte, image, article, traducteur, langueOriginale, notesCritiques} = data.articleAuFil
     const options = {
         renderNode: {
           [INLINES.HYPERLINK]: (node) => {
@@ -38,16 +38,16 @@ const AufilArticle = ({data}) => {
                 <div className='article-pres' dangerouslySetInnerHTML={{__html : prsentationDuTexte.childMarkdownRemark.html}}></div>
 
 
-                {/* {notesCritiques && <div className='notes-critiques-container'>
+                {notesCritiques && <div className='notes-critiques-container'>
                     <div className="notes-critiques" dangerouslySetInnerHTML={{__html : notesCritiques.childMarkdownRemark.html}}></div>
                     <div className='article-au-fil-image-container'>
                         {image && <Img className='article-au-fil-image' fluid={image.fluid}/>}
                     </div>
-                </div>} */}
+                </div>}
                 <div className='article-content'>
                     {documentToReactComponents(article.json, options)} 
                     <div className='article-au-fil-image-container'>
-                        {image && <Img className='article-au-fil-image' fluid={image.fluid}/>}
+                        {!notesCritiques && image && <Img className='article-au-fil-image' fluid={image.fluid}/>}
                     </div>
                 </div>
 
@@ -76,6 +76,11 @@ query($url:String) {
         article {json}
         traducteur
         langueOriginale
+        notesCritiques {
+            childMarkdownRemark{
+                html
+              }
+        }
     }
 }
 `

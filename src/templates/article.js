@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Img from 'gatsby-image'
 import SEO from '../components/SEO'
-import { INLINES } from '@contentful/rich-text-types'
+import { INLINES,BLOCKS } from '@contentful/rich-text-types'
 
 import Materiaux from '../components/materiaux'
 
@@ -19,9 +19,17 @@ const Article = ({data}) => {
             } else {
                 return <strong><a href={node.data.uri}>{node.content[0].value}</a></strong>
             }
-          }
+          },
+          [INLINES.EMBEDDED_ENTRY]: node => {
+              console.log(node.data.target.fields.text)
+                if (node.data.target.sys.contentType.sys.id === 'footnote') {
+                    return <div style={{position: 'absolute', left: '100%', width: '200px', paddingLeft: '50px'}}>{documentToReactComponents(node.data.target.fields.text['en-US'])}</div>
+                }
+            }
         }
       }
+
+      console.log(article)
 
 
     return (

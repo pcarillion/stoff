@@ -181,7 +181,7 @@ const Commandebis = () => {
                   >
                   PAYER
                   </button></div>: 
-                  <div>Vide</div>}
+                  <div>Tous nos produits sont actuellement en rupture de stock. Nous sommes désolés.</div>}
                 </div>
               </form>
         </div>

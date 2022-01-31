@@ -16,10 +16,11 @@ const formatPrice = (amount, currency) => {
 const ProductCard = ({ product, callback, items }) => {
 
   const send_callback = () => {
-          let qty = document.querySelector(`.qty-${product.prices[0].id}`)
-          if (qty.value > 0) {
-            callback(product.prices[0].id, qty.value, product.name,product.prices[0].unit_amount)
-          }
+    return;
+          // let qty = document.querySelector(`.qty-${product.prices[0].id}`)
+          // if (qty.value > 0) {
+          //   callback(product.prices[0].id, qty.value, product.name,product.prices[0].unit_amount)
+          // }
     }
 
   function change_qty(value) {
@@ -46,15 +47,16 @@ const ProductCard = ({ product, callback, items }) => {
 
         <div className={'input-div'}>
             <div className="qty-inputs">
-              <div onClick={() => change_qty(0)} className="qty-btns">-</div>
+              {/*<div onClick={() => change_qty(0)} className="qty-btns">-</div>
               <input type='number' value={items[product.prices[0].id] ? items[product.prices[0].id][0] : "0"} min="0" name='quantity' class={`qty-input qty-${product.prices[0].id}`} placeholder='0'/>
-              <div onClick={() => change_qty(1)} className="qty-btns">+</div>
+              <div onClick={() => change_qty(1)} className="qty-btns">+</div>*/}
+              <div>Rupture de stock</div>
             </div>
         </div>
 
-        <div className={`btn-add btn-add-${product.prices[0].id}`} onClick={() => send_callback()}>
+        {/* <div className={`btn-add btn-add-${product.prices[0].id}`} onClick={() => send_callback()}>
             Ajouter au panier
-        </div>
+        </div> */}
         
       </div>
   )

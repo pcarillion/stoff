@@ -54,6 +54,16 @@ query{
                 ...GatsbyContentfulFluid
             }
           }
+          article {
+            ... on ContentfulArticleEnAccesLibre {
+              id
+              titre
+            }
+            ... on ContentfulArticleSansAccesLibre {
+              id
+              titre
+            }
+          }
         }
     }
     }

@@ -54,9 +54,6 @@ query{
                 ...GatsbyContentfulFluid
             }
           }
-          article{
-            titre
-          }
         }
     }
     }

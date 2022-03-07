@@ -28,6 +28,7 @@ query {
             url
             sousTitre
             dateDePublication
+            __typename
             materiaux{
                 titre
             }
@@ -43,11 +44,12 @@ query {
             titre
             sousTitre
             dateDePublication
+            __typename
             materiaux{
                 titre
             }
             extrait{json}
-            photoPrincipale {
+            image:photoPrincipale {
                 fluid {
                     ...GatsbyContentfulFluid
                 }
@@ -66,9 +68,7 @@ const Numeros = () => {
     const [oneNumberDisplayed, setOneNumberDisplayed] = useState(false)
     const [trameUrl, setTrameUrl] = useState('')
 
-    numeros.edges.forEach(numero => {
-        console.log(numero)
-    })
+
     const options = {
         renderNode: {
           [INLINES.HYPERLINK]: (node) => {

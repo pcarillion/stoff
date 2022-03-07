@@ -38,13 +38,16 @@ const SingleCard = ({article, i, numero}) => {
             return 'au-fil';
         } else if (typename === "ContentfulArticleEnAccesLibre") {
             return 'article';
+        } else if (typename === "ContentfulArticleSansAccesLibre") {
+            return 'numeros/article';
         } else if (typename === "ContentfulMateriau") {
             return 'materiau';
         }
       }
 
+
       return (
-        <AniLink className='numeros-article-card' key={i} to={numero?`/numeros/article/${the_article.url}`:`/${getURL(the_article.__typename)}/${the_article.url}`}>
+        <AniLink className='numeros-article-card' key={i} to={`/${getURL(the_article.__typename)}/${the_article.url}`}>
                     {!numero && <h5>{translateTypeName(the_article.__typename, the_article.article)}</h5>}
                     <div className="numero-all-text-content">
                         <h3>{the_article.titre}</h3>

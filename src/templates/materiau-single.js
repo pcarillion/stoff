@@ -9,7 +9,8 @@ import { createPortal } from 'react-dom';
 const MateriauSingle = ({data}) => {
     const {titre, auteur, dateDePublication, sousTitre, notesCritiques, presentation, image, texte, traducteur, langueOriginale} = data.materiau
     // console.log(texte)
-    
+    const images = data.images.edges
+
     const options = {
         renderNode: {
           [INLINES.HYPERLINK]: (node) => {
@@ -21,7 +22,16 @@ const MateriauSingle = ({data}) => {
                 return <strong><a href={node.data.uri} className="a-in-rich-text">{node.content[0].value}</a></strong>
             }
           }
-        }
+        },
+        "embedded-asset-block":(node)=> {
+            let file
+            for (let i = 0; i < images.length; i ++){
+              if (images[i].node.contentful_id === node.data.target.sys.contentful_id){
+                file = images[i].node
+              }
+            }
+            return (<div className="image-in-article" ><img src={file.file.url}/> <p>{file.description}</p></div>)
+          }
       }
 
 
@@ -77,6 +87,16 @@ query($url:String) {
               }
         }
     }
+    images: allContentfulAsset{
+        edges{
+          node{
+            contentful_id
+            id
+            file{url}
+            description
+          }
+        }
+      }
 }
 `
 

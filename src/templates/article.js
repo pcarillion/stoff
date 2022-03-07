@@ -9,6 +9,7 @@ import Materiaux from '../components/materiaux'
 
 const Article = ({data}) => {
     const {titre, auteur, dateDePublication,notesDeBasDePage, sousTitre, presentation, photoPrincipale, article, materiaux} = data.article
+    const images = data.images.edges
     const options = {
         renderNode: {
           [INLINES.HYPERLINK]: (node) => {
@@ -20,16 +21,24 @@ const Article = ({data}) => {
                 return <strong><a href={node.data.uri}>{node.content[0].value}</a></strong>
             }
           },
-          [INLINES.EMBEDDED_ENTRY]: node => {
-              console.log(node.data.target.fields.text)
-                if (node.data.target.sys.contentType.sys.id === 'footnote') {
-                    return <div style={{position: 'absolute', left: '100%', width: '200px', paddingLeft: '50px'}}>{documentToReactComponents(node.data.target.fields.text['en-US'])}</div>
+        //   [INLINES.EMBEDDED_ENTRY]: node => {
+        //       console.log(node.data.target.fields.text)
+        //         if (node.data.target.sys.contentType.sys.id === 'footnote') {
+        //             return <div className='footnote'>{documentToReactComponents(node.data.target.fields.text['en-US'])}</div>
+        //         }
+        //     },
+            "embedded-asset-block":(node)=> {
+                let file
+                for (let i = 0; i < images.length; i ++){
+                  if (images[i].node.contentful_id === node.data.target.sys.contentful_id){
+                    file = images[i].node
+                  }
                 }
-            }
+                return (<div className="image-in-article" ><img src={file.file.url}/> <p>{file.description}</p></div>)
+              }
         }
       }
 
-      console.log(article)
 
 
     return (
@@ -81,6 +90,16 @@ query($url:String) {
             url
           }
     }
+    images: allContentfulAsset{
+        edges{
+          node{
+            contentful_id
+            id
+            file{url}
+            description
+          }
+        }
+      }
 }
 `
 

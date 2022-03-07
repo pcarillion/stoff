@@ -56,6 +56,10 @@ li {
     left: 0;
 }
 
+.image-in-article > img {
+    max-width: 100%;
+}
+
 
 /* nav-bar */
 
@@ -783,6 +787,14 @@ li {
 .article-au-fil-image-mobile {
     display: none;
 }
+
+.footnote {
+    position: absolute; 
+    left: 100%;
+    width: 200px; 
+    padding-left: 50px;
+}
+
 
 @media screen and (max-width: 900px) {
     .article-container {

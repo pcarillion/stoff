@@ -7,6 +7,7 @@ import { INLINES } from '@contentful/rich-text-types'
 
 const AufilArticle = ({data}) => {
     const {titre, auteur, date, sousTitre, prsentationDuTexte, image, article, traducteur, langueOriginale, notesCritiques} = data.articleAuFil
+    const images = data.images.edges
     const options = {
         renderNode: {
           [INLINES.HYPERLINK]: (node) => {
@@ -17,11 +18,24 @@ const AufilArticle = ({data}) => {
             } else {
                 return <strong><a href={node.data.uri}>{node.content[0].value}</a></strong>
             }
+          },
+          [INLINES.EMBEDDED_ENTRY]: node => {
+              if (node.data.target.sys.contentType.sys.id === 'footnote') {
+                  return <div className='footnote'>{documentToReactComponents(node.data.target.fields.text['en-US'])}</div>
+              }
+          },
+          "embedded-asset-block":(node)=> {
+            let file
+            for (let i = 0; i < images.length; i ++){
+              if (images[i].node.contentful_id === node.data.target.sys.contentful_id){
+                file = images[i].node
+              }
+            }
+            return (<div className="image-in-article" ><img src={file.file.url}/> <p>{file.description}</p></div>)
           }
         }
       }
 
-    //   console.log(data)
     
     return (
         <Layout>
@@ -77,11 +91,21 @@ query($url:String) {
         traducteur
         langueOriginale
         notesCritiques {
-            childMarkdownRemark{
-                html
-              }
+                childMarkdownRemark{
+                    html
+                  }
         }
     }
+    images: allContentfulAsset{
+        edges{
+          node{
+            contentful_id
+            id
+            file{url}
+            description
+          }
+        }
+      }
 }
 `
 
